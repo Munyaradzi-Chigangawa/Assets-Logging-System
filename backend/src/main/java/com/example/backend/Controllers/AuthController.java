@@ -20,7 +20,9 @@ public class AuthController {
         String result = authService.register(user);
         return result;
     }
-
-
-
+    @PostMapping("/login")
+    public String login(@RequestBody User user) {
+    String token = authService.login(user);
+    return token;
+    }
 }

@@ -3,14 +3,11 @@ import com.example.backend.Models.User;
 import com.example.backend.Repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.yaml.snakeyaml.external.biz.base64Coder.Base64Coder;
-
 import java.security.SecureRandom;
 import java.util.Base64;
 
 @Service
 public class AuthService {
-
     @Autowired
     private UserRepository userRepository;
 
@@ -23,20 +20,27 @@ public class AuthService {
 
         user.setToken(generateToken());
 
-        byte[] token = new byte[24];
-        secureRandom.nextBytes(token);
-        return base64encoder.encodeToString(token);
+        userRepository.save(user);
+
+        return "User Successfully Registered";
+
     }
 
     private String generateToken() {
 
-    }
+        byte[] token = new byte[24];
+        secureRandom.nextBytes(token);
+        return base64encoder.encodeToString(token);
 
+    }
     private boolean checkUserExist(User user) {
         User existingUser = userRepository.findById(user.getUsername()).orElse(null);
 
         if (existingUser == null)
             return false;
         return true;
+    }
+    public String login(User user) {
+
     }
 }
