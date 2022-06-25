@@ -41,6 +41,11 @@ public class AuthService {
         return true;
     }
     public String login(User user) {
+    User existingUser = userRepository.findById(user.getUsername()).orElse(null);
 
+    if (existingUser == null)
+        return "";
+
+    return existingUser.getToken();
     }
 }
