@@ -13,7 +13,7 @@ import javax.persistence.Table;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "laptops")
+@Table(name = "projectors")
 
 public class Projector {
 
