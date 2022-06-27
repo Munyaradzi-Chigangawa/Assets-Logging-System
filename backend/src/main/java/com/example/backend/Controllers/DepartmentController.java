@@ -1,2 +1,4 @@
-package com.example.backend.Controllers;public class DepartmentController {
+package com.example.backend.Controllers;
+
+public class DepartmentController {
 }

@@ -1,5 +1,4 @@
 package com.example.backend.Controllers;
-
 import com.example.backend.Models.User;
 import com.example.backend.Services.AuthService;
 import org.springframework.beans.factory.annotation.Autowired;
