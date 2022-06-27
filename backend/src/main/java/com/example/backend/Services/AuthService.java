@@ -13,16 +13,14 @@ public class AuthService {
 
     private static final SecureRandom secureRandom = new SecureRandom();
     private static final Base64.Encoder base64encoder = Base64.getUrlEncoder();
-    public String register(User user) {
+    public User register(User user) {
         // Check if user with provided name already exist or not
         if (checkUserExist(user) == true )
-            return "Error while adding user";
+            return null;
 
         user.setToken(generateToken());
 
-        userRepository.save(user);
-
-        return "User Successfully Registered";
+        return userRepository.save(user);
 
     }
 
@@ -40,12 +38,16 @@ public class AuthService {
             return false;
         return true;
     }
-    public String login(User user) {
+    public User login(User user) {
     User existingUser = userRepository.findById(user.getUsername()).orElse(null);
 
-    if (existingUser == null)
-        return "";
+    if(existingUser.getUsername().equals(user.getUsername()) &&
+            existingUser.getPassword().equals(user.getPassword()))
+    {
+        existingUser.setPassword("");
+        return existingUser;
+    };
+        return null;
 
-    return existingUser.getToken();
     }
 }
