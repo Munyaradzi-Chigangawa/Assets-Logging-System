@@ -18,7 +18,8 @@ public class Booking {
     @Id
     @Column(length = 100)
     private String bookingId;
-    private String name;
+    private String assetName;
+    private String borrowedBy;
     private String serialNumber;
     private String model;
     private String quantity;
