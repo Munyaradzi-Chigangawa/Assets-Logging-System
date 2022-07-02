@@ -27,4 +27,17 @@ public class ProjectorService {
         return projectorRepository.save(projector1);
     }
 
+    public Projector getProjectors(ProjectorDto projector) {
+        Projector projector1 = Projector.builder()
+                .createdAt(projector.getCreatedAt())
+                .updatedAt(projector.getUpdatedAt())
+                .projectorModel(projector.getProjector_model())
+                .projectorName(projector.getProjector_name())
+                .projectorNumber(projector.getProjector_number())
+                .build();
+        return projectorRepository.findAll().stream()
+                .filter(p -> p.getProjectorModel().equals(projector.getProjector_model()))
+                .findFirst()
+                .orElse(projector1);
+    }
 }
