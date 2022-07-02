@@ -4,6 +4,7 @@ import lombok.*;
 
 import javax.validation.constraints.NotEmpty;
 import java.io.Serializable;
+import java.sql.Time;
 
 @Data
 @NoArgsConstructor
@@ -16,5 +17,7 @@ public class ProjectorDto implements Serializable {
     private String projector_model;
     @NotEmpty(message = "Projector Serial Number is Required.")
     private String projector_number;
+    private Time createdAt;
+    private Time updatedAt;
 
 }
