@@ -30,4 +30,8 @@ public class ProjectorService {
     public Projector getAllProjectors() {
         return projectorRepository.findAll().get(0);
     }
+
+    public Projector getProjector(Long id) {
+        return projectorRepository.findById(id).get();
+    }
 }

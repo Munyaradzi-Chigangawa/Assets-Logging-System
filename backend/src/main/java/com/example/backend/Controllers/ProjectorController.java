@@ -34,4 +34,10 @@ public class ProjectorController {
         log.info("Projectors Successfully Retrieved.");
         return new ResponseEntity<>(projectorService.getAllProjectors(), HttpStatus.OK);
     }
+
+    @GetMapping( value = "/getProjector/{id}")
+    public ResponseEntity<Projector> getProjector(@PathVariable Long id) {
+        log.info("Projector Successfully Retrieved.");
+        return new ResponseEntity<>(projectorService.getProjector(id), HttpStatus.OK);
+    }
 }
