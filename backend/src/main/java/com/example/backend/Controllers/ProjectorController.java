@@ -23,33 +23,10 @@ import java.util.List;
 public class ProjectorController {
     private final ProjectorService projectorService;
 
-    @RequestMapping(value = "/getProjectors")
-    public ResponseEntity<Projector> getProjectors(@RequestBody ProjectorDto projectorDto) {
-        Projector projector = projectorService.getProjectors(projectorDto);
-        return new ResponseEntity<>(projector, HttpStatus.OK);
-    }
-
-
-//    @RequestMapping ( value = "/count", method = RequestMethod.GET, produces = "application/json")
-//    public int noOfProjectors() {
-//        return (int) projectorRepository.count();
-//    }
-
     @PostMapping( value = "/addProjector")
     public ResponseEntity<Projector> addProjector (@RequestBody ProjectorDto projector) {
         log.info("Projector Successfully Added.");
         return new ResponseEntity<>(projectorService.save(projector), HttpStatus.CREATED);
     }
-//    @RequestMapping ( value = "/deleteProjector", method = RequestMethod.POST, produces = "application/json")
-//    public void deleteProjector (@RequestBody List<Projector> projectors) {
-//        System.out.println("Deleted Projector");
-//        projectorRepository.deleteAll(projectors);
-//    }
-
-
-//    @RequestMapping ( value = "/cancelProjectorBooking", method = RequestMethod.POST, produces = "application/json")
-//    public void cancelProjectorBooking (@RequestBody Booking bookingDetails) {
-//        System.out.println(bookingDetails.split(":"[0]));
-//        bookingRepository.deleteByBookingId(bookingDetails);
-//    }
+    
 }
