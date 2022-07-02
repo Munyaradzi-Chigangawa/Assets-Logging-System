@@ -27,4 +27,7 @@ public class ProjectorService {
         return projectorRepository.save(projector1);
     }
 
+    public Projector getAllProjectors() {
+        return projectorRepository.findAll().get(0);
+    }
 }

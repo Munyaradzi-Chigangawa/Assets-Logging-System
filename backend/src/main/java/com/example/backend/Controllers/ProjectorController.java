@@ -28,5 +28,10 @@ public class ProjectorController {
         log.info("Projector Successfully Added.");
         return new ResponseEntity<>(projectorService.save(projector), HttpStatus.CREATED);
     }
-    
+
+    @GetMapping( value = "/getProjectors")
+    public ResponseEntity<Projector> getProjectors() {
+        log.info("Projectors Successfully Retrieved.");
+        return new ResponseEntity<>(projectorService.getAllProjectors(), HttpStatus.OK);
+    }
 }
