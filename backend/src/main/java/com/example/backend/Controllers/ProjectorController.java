@@ -23,12 +23,12 @@ import java.util.List;
 public class ProjectorController {
     private final ProjectorService projectorService;
 
-//    @RequestMapping ( value = "/getProjectors", method = RequestMethod.GET, produces = "application/json")
-//    public List <Projector> getProjectors() {
-//        List<Projector> list = new ArrayList<>();
-//        projectorRepository.findAll().forEach(list::add);
-//        return list;
-//    }
+    @RequestMapping(value = "/getProjectors")
+    public ResponseEntity<Projector> getProjectors(@RequestBody ProjectorDto projectorDto) {
+        Projector projector = projectorService.getProjectors(projectorDto);
+        return new ResponseEntity<>(projector, HttpStatus.OK);
+    }
+
 
 //    @RequestMapping ( value = "/count", method = RequestMethod.GET, produces = "application/json")
 //    public int noOfProjectors() {
