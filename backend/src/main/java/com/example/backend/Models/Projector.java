@@ -9,6 +9,7 @@ import org.hibernate.annotations.UpdateTimestamp;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.sql.Date;
 import java.sql.Time;
 
 @Entity
@@ -28,8 +29,8 @@ public class Projector implements Serializable {
     private String projectorModel;
     private String projectorNumber;
     @CreationTimestamp
-    private Time createdAt;
+    private Date createdAt;
     @UpdateTimestamp
-    private Time updatedAt;
+    private Date updatedAt;
 }
 
