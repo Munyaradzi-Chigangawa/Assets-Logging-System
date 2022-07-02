@@ -18,20 +18,10 @@ public class ProjectorController {
     @Autowired
     private ProjectorRepository projectorRepository;
 
-    @Autowired
-    private BookingRepository bookingRepository;
-
     @RequestMapping ( value = "/getProjectors", method = RequestMethod.GET, produces = "application/json")
     public List <Projector> getProjectors() {
         List<Projector> list = new ArrayList<>();
         projectorRepository.findAll().forEach(list::add);
-        return list;
-    }
-
-    @RequestMapping ( value = "/getProjectorBookingDetails", method = RequestMethod.GET, produces = "application/json")
-    public List <Booking> getProjectorBookingDetails() {
-        List<Booking> list = new ArrayList<Booking>();
-        bookingRepository.findAll().forEach(list::add);
         return list;
     }
 
@@ -51,11 +41,6 @@ public class ProjectorController {
         projectorRepository.deleteAll(projectors);
     }
 
-    @RequestMapping ( value = "/makeProjectorBooking", method = RequestMethod.POST, produces = "application/json")
-    public void makeProjectorBooking (@RequestBody Booking bookingDetails) {
-        System.out.println("Booked Projector");
-        bookingRepository.save(bookingDetails);
-    }
 
 //    @RequestMapping ( value = "/cancelProjectorBooking", method = RequestMethod.POST, produces = "application/json")
 //    public void cancelProjectorBooking (@RequestBody Booking bookingDetails) {

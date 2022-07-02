@@ -8,6 +8,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import java.io.Serializable;
 
 @Entity
 @Data
@@ -15,7 +16,7 @@ import javax.persistence.Table;
 @AllArgsConstructor
 @Table(name = "projectors")
 
-public class Projector {
+public class Projector implements Serializable {
 
     @Id
     @Column(length = 100)
@@ -23,8 +24,8 @@ public class Projector {
     private String projector_name;
     private String projector_model;
     private String projector_number;
-    private String booking_duration;
-    private String created_at;
-    private String updated_at;
+//    private String booking_duration;
+//    private String created_at;
+//    private String updated_at;
 }
 
