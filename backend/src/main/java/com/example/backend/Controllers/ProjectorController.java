@@ -46,4 +46,10 @@ public class ProjectorController {
         log.info("Projector Successfully Deleted.");
         return new ResponseEntity<>(projectorService.deleteProjector(id), HttpStatus.OK);
     }
+
+    @PutMapping( value = "/updateProjector/{id}")
+    public ResponseEntity<Projector> updateProjector(@PathVariable Long id, @RequestBody ProjectorDto projector) {
+        log.info("Projector Successfully Updated.");
+        return new ResponseEntity<>(projectorService.updateProjector(id, projector), HttpStatus.OK);
+    }
 }

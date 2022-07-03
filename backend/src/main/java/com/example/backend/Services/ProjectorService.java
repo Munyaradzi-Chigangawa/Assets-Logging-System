@@ -40,4 +40,15 @@ public class ProjectorService {
          projectorRepository.deleteById(id);
         return projectorRepository.findAll().get(0);
     }
+
+    public Projector updateProjector(Long id, ProjectorDto projector) {
+        Projector projector1 = Projector.builder()
+                .projectorModel(projector.getProjector_model())
+                .projectorName(projector.getProjector_name())
+                .projectorNumber(projector.getProjector_number())
+                .createdAt(projector.getCreatedAt())
+                .updatedAt(projector.getUpdatedAt())
+                .build();
+        return projectorRepository.save(projector1);
+    }
 }
