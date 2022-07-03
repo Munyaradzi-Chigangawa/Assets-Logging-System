@@ -40,4 +40,10 @@ public class ProjectorController {
         log.info("Projector Successfully Retrieved.");
         return new ResponseEntity<>(projectorService.getProjector(id), HttpStatus.OK);
     }
+
+    @DeleteMapping( value = "/deleteProjector/{id}")
+    public ResponseEntity<Projector> deleteProjector(@PathVariable Long id) {
+        log.info("Projector Successfully Deleted.");
+        return new ResponseEntity<>(projectorService.deleteProjector(id), HttpStatus.OK);
+    }
 }

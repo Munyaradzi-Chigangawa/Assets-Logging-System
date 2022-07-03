@@ -28,10 +28,16 @@ public class ProjectorService {
     }
 
     public Projector getAllProjectors() {
+
         return projectorRepository.findAll().get(0);
     }
 
     public Projector getProjector(Long id) {
         return projectorRepository.findById(id).get();
+    }
+
+    public Projector deleteProjector(Long id) {
+         projectorRepository.deleteById(id);
+        return projectorRepository.findAll().get(0);
     }
 }
