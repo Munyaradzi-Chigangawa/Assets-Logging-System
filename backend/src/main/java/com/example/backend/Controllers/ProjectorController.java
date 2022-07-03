@@ -30,7 +30,7 @@ public class ProjectorController {
     }
 
     @GetMapping( value = "/getProjectors")
-    public ResponseEntity<Projector> getProjectors() {
+    public ResponseEntity<List<Projector>> getProjectors() {
         log.info("Projectors Successfully Retrieved.");
         return new ResponseEntity<>(projectorService.getAllProjectors(), HttpStatus.OK);
     }

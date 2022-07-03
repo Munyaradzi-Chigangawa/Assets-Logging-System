@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
+import java.util.List;
 
 @Service
 @Transactional
@@ -27,9 +28,8 @@ public class ProjectorService {
         return projectorRepository.save(projector1);
     }
 
-    public Projector getAllProjectors() {
-
-        return projectorRepository.findAll().get(0);
+    public List<Projector> getAllProjectors() {
+        return projectorRepository.findAll();
     }
 
     public Projector getProjector(Long id) {
