@@ -19,9 +19,9 @@ public class ProjectorService {
 
     public Projector save (ProjectorDto projector) {
         Projector projector1 = Projector.builder()
-                .projectorModel(projector.getProjector_model())
-                .projectorName(projector.getProjector_name())
-                .projectorNumber(projector.getProjector_number())
+                .projectorModel(projector.getProjectorModel())
+                .projectorName(projector.getProjectorName())
+                .projectorNumber(projector.getProjectorNumber())
                 .createdAt(projector.getCreatedAt())
                 .updatedAt(projector.getUpdatedAt())
                 .build();
@@ -43,9 +43,9 @@ public class ProjectorService {
 
     public Projector updateProjector(Long id, ProjectorDto projector) {
         Projector projector1 = Projector.builder()
-                .projectorModel(projector.getProjector_model())
-                .projectorName(projector.getProjector_name())
-                .projectorNumber(projector.getProjector_number())
+                .projectorModel(projector.getProjectorModel())
+                .projectorName(projector.getProjectorName())
+                .projectorNumber(projector.getProjectorNumber())
                 .createdAt(projector.getCreatedAt())
                 .updatedAt(projector.getUpdatedAt())
                 .build();

@@ -12,11 +12,11 @@ import java.sql.Date;
 @AllArgsConstructor
 public class ProjectorDto implements Serializable {
     @NotEmpty(message = "Projector Name is Required.")
-    private String projector_name;
+    private String projectorName;
     @NotEmpty(message = "Projector Model is Required.")
-    private String projector_model;
+    private String projectorModel;
     @NotEmpty(message = "Projector Serial Number is Required.")
-    private String projector_number;
+    private String projectorNumber;
     private Date createdAt;
     private Date updatedAt;
 
