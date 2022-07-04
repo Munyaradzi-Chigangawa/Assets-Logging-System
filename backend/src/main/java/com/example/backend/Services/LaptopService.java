@@ -1,6 +1,7 @@
 package com.example.backend.Services;
 import com.example.backend.Models.Laptop;
 import com.example.backend.Repositories.LaptopRepository;
+import com.example.backend.dto.LaptopDto;
 import com.example.backend.exceptions.LaptopNotFound;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,7 +16,7 @@ public class LaptopService {
 
         @Autowired
         private final LaptopRepository laptopRepository;
-        public Laptop save (Laptop laptop) {
+        public Laptop save (LaptopDto laptop) {
         Laptop laptop1 = Laptop.builder()
                 .laptopName(laptop.getLaptopName())
                 .laptopModel(laptop.getLaptopModel())

@@ -24,7 +24,7 @@ public class Projector implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
     @Column(length = 100)
-    private Long id;
+    private Long projectorId;
     @Column(name = "projector_name", columnDefinition = "varchar(255)")
     private String projectorName;
     private String projectorModel;

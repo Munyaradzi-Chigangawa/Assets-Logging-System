@@ -1,9 +1,7 @@
 package com.example.backend.dto;
 import lombok.*;
-
 import javax.validation.constraints.NotEmpty;
 import java.io.Serializable;
-import java.sql.Date;
 import java.sql.Timestamp;
 
 @Data

@@ -4,17 +4,15 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.hibernate.annotations.CreationTimestamp;
-
 import javax.validation.constraints.NotEmpty;
 import java.io.Serializable;
+import java.sql.Timestamp;
 
 
 @Data
 @NoArgsConstructor
-@AllArgsConstructor
 @Builder
-
+@AllArgsConstructor
 public class LaptopDto implements Serializable {
     @NotEmpty(message = "Laptop Name is Required.")
     private String laptopName;
@@ -30,7 +28,7 @@ public class LaptopDto implements Serializable {
     private String ram;
     @NotEmpty(message = "Storage is Required.")
     private String storage;
-    private String createdAt;
-    private String updatedAt;
+    private Timestamp createdAt;
+    private Timestamp updatedAt;
 
 }

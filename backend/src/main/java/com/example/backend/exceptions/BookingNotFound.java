@@ -1,2 +1,7 @@
-package com.example.backend.exceptions;public class BookingNotFound {
+package com.example.backend.exceptions;
+
+public class BookingNotFound extends RuntimeException {
+    public BookingNotFound(String message) {
+        super(message);
+    }
 }

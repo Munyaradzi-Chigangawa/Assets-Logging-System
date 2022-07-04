@@ -1,2 +1,4 @@
-package com.example.backend.Services;public class BookingService {
+package com.example.backend.Services;
+
+public class BookingService {
 }

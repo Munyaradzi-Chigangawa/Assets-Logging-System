@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@AllArgsConstructor
 @RequiredArgsConstructor
 @Slf4j
 @CrossOrigin(value = "*", allowedHeaders = "*")
@@ -23,7 +22,7 @@ public class LaptopController {
     private final LaptopService laptopService;
 
     @PostMapping(value = "/addLaptop")
-    public ResponseEntity<Laptop> addLaptop(@RequestBody Laptop laptop) {
+    public ResponseEntity<Laptop> addLaptop(@RequestBody LaptopDto laptop) {
         log.info("Laptop Successfully Added.");
         return new ResponseEntity<>(laptopService.save(laptop), HttpStatus.CREATED);
     }

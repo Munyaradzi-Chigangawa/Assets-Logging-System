@@ -2,10 +2,11 @@ package com.example.backend.Models;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
+
+import javax.persistence.*;
+import java.sql.Timestamp;
 
 @Data
 @Entity
@@ -15,14 +16,22 @@ import javax.persistence.Table;
 
 public class Booking {
 
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
     @Column(length = 100)
-    private String bookingId;
+    private Long bookingId;
+    @Column(name = "asset_name", columnDefinition = "varchar(255)")
     private String assetName;
     private String borrowedBy;
     private String serialNumber;
+    private String borrowedDate;
+    private String returnDate;
     private String model;
     private String quantity;
-    private String updatedAt;
+    private String status;
+    @CreationTimestamp
+    private Timestamp createdAt;
+    @UpdateTimestamp
+    private Timestamp updatedAt;
 
 }

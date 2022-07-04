@@ -4,8 +4,11 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
 
 import javax.persistence.*;
+import java.io.Serializable;
+import java.sql.Timestamp;
 
 @Entity
 @Data
@@ -14,11 +17,11 @@ import javax.persistence.*;
 @Builder
 @Table(name = "laptops")
 
-public class Laptop {
+public class Laptop implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
     @Column(length = 100)
-    private String id;
+    private Long laptopId;
     @Column(name = "laptop_name", columnDefinition = "varchar(255)")
     private String laptopName;
     private String laptopModel;
@@ -28,7 +31,7 @@ public class Laptop {
     private String ram;
     private String storage;
     @CreationTimestamp
-    private String createdAt;
-    @CreationTimestamp
-    private String updatedAt;
+    private Timestamp createdAt;
+    @UpdateTimestamp
+    private Timestamp updatedAt;
 }
