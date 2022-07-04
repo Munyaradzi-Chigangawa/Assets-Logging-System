@@ -4,11 +4,13 @@ package com.example.backend.Services;
 import com.example.backend.Models.Department;
 import com.example.backend.Repositories.DepartmentRepository;
 import com.example.backend.dto.DepartmentDto;
+import com.example.backend.exceptions.DepartmentNotFound;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
+import java.util.List;
 
 @Service
 @Transactional
@@ -28,4 +30,21 @@ public class DepartmentService {
                 .build();
         return departmentRepository.save(department1);
     }
+
+    public List<Department> getAllDepartments() {
+        return departmentRepository.findAll();
+    }
+
+    public Department getDepartment(Long id) {
+        return departmentRepository.findById(id)
+                .orElseThrow(() -> new DepartmentNotFound("Department id " + id + "was not found"));
+    }
+
+    public Department deleteDepartment(Long id) {
+        departmentRepository.deleteById(id);
+        return null;
+    }
+
+
+
 }

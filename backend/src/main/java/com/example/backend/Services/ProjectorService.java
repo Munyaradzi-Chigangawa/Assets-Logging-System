@@ -47,14 +47,14 @@ public class ProjectorService {
         return null;
     }
 
-    public Projector updateProjector(Long id, ProjectorDto projector) {
-        Projector projector1 = Projector.builder()
-                .projectorModel(projector.getProjectorModel())
-                .projectorName(projector.getProjectorName())
-                .projectorNumber(projector.getProjectorNumber())
-                .createdAt(projector.getCreatedAt())
-                .updatedAt(projector.getUpdatedAt())
-                .build();
-        return projectorRepository.save(projector1);
-    }
+//    public Projector updateProjector(Long id, ProjectorDto projector) {
+//        Projector projector1 = Projector.builder()
+//                .projectorModel(projector.getProjectorModel())
+//                .projectorName(projector.getProjectorName())
+//                .projectorNumber(projector.getProjectorNumber())
+//                .createdAt(projector.getCreatedAt())
+//                .updatedAt(projector.getUpdatedAt())
+//                .build();
+//        return projectorRepository.save(projector1);
+//    }
 }
