@@ -1,17 +1,21 @@
 package com.example.backend.Models;
 
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.CreationTimestamp;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.sql.Timestamp;
 
 @Entity
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Table(name = "departments")
+@Builder
 
 public class Department implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -22,6 +26,8 @@ public class Department implements Serializable {
     private String departmentName;
     private String departmentCode;
     private String departmentDescription;
-    private String createdAt;
-    private String updatedAt;
+    @CreationTimestamp
+    private Timestamp createdAt;
+    @CreationTimestamp
+    private Timestamp updatedAt;
 }
