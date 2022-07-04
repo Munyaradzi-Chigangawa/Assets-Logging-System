@@ -3,7 +3,9 @@ package com.example.backend.Services;
 import com.example.backend.Models.Projector;
 import com.example.backend.Repositories.ProjectorRepository;
 import com.example.backend.dto.ProjectorDto;
+import com.example.backend.exceptions.ProjectorNotFound;
 import lombok.RequiredArgsConstructor;
+import org.hibernate.validator.constraints.Range;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -29,11 +31,14 @@ public class ProjectorService {
     }
 
     public List<Projector> getAllProjectors() {
+
         return projectorRepository.findAll();
     }
 
     public Projector getProjector(Long id) {
-        return projectorRepository.findById(id).get();
+
+        return projectorRepository.findById(id)
+                .orElseThrow(() -> new ProjectorNotFound("Projector id " + id + "was not found"));
     }
 
     public Projector deleteProjector(Long id) {
