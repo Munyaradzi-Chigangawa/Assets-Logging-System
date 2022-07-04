@@ -14,7 +14,6 @@ import java.sql.Timestamp;
 @NoArgsConstructor
 
 public class DepartmentDto implements Serializable {
-    private Long id;
     @NotEmpty(message = "Department Name is Required.")
     private String departmentName;
     @NotEmpty(message = "Department Code is Required.")
