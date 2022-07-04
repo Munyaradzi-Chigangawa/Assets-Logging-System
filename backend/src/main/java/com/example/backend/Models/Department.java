@@ -4,10 +4,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.io.Serializable;
 
 @Entity
 @Data
@@ -15,16 +13,15 @@ import javax.persistence.Table;
 @AllArgsConstructor
 @Table(name = "departments")
 
-public class Department {
-
+public class Department implements Serializable {
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
     @Column(length = 100)
-    private String id;
-    private String name;
-    private String model;
-    private String serial_number;
-    private String booking_duration;
-    private String created_at;
-    private String updated_at;
-
+    private Long id;
+    @Column(name = "department_name", columnDefinition = "varchar(255)")
+    private String departmentName;
+    private String departmentCode;
+    private String departmentDescription;
+    private String createdAt;
+    private String updatedAt;
 }
