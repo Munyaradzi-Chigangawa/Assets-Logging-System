@@ -1,10 +1,10 @@
 package com.example.backend.dto;
-
 import lombok.*;
 
 import javax.validation.constraints.NotEmpty;
 import java.io.Serializable;
 import java.sql.Date;
+import java.sql.Timestamp;
 
 @Data
 @NoArgsConstructor
@@ -17,7 +17,7 @@ public class ProjectorDto implements Serializable {
     private String projectorModel;
     @NotEmpty(message = "Projector Serial Number is Required.")
     private String projectorNumber;
-    private Date createdAt;
-    private Date updatedAt;
+    private Timestamp createdAt;
+    private Timestamp updatedAt;
 
 }
