@@ -43,7 +43,8 @@ public class ProjectorService {
 
     public Projector deleteProjector(Long id) {
          projectorRepository.deleteById(id);
-        return projectorRepository.findAll().get(0);
+        // return projectorRepository.findAll().get(0);
+        return null;
     }
 
     public Projector updateProjector(Long id, ProjectorDto projector) {
