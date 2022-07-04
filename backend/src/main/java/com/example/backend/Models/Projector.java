@@ -11,6 +11,7 @@ import javax.persistence.*;
 import java.io.Serializable;
 import java.sql.Date;
 import java.sql.Time;
+import java.sql.Timestamp;
 
 @Entity
 @Data
@@ -29,8 +30,8 @@ public class Projector implements Serializable {
     private String projectorModel;
     private String projectorNumber;
     @CreationTimestamp
-    private Date createdAt;
+    private Timestamp createdAt;
     @UpdateTimestamp
-    private Date updatedAt;
+    private Timestamp updatedAt;
 }
 
