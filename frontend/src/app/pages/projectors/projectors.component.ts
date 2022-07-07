@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { ProjectorService } from 'src/app/services/projector.service';
 
 @Component({
   selector: 'app-projectors',
@@ -6,9 +8,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProjectorsComponent implements OnInit {
 
-  constructor() { }
+  projectors: Projector[];
+
+  constructor( private projectorService: ProjectorService, private router: Router) { }
 
   ngOnInit(): void {
+    this.getProjectors();
   }
-
+  private getProjectors() {
+    this.projectorService
+    .getProjectorsList()
+    .subscribe(
+    data => {this.projectors = data
+    console.log(data)},
+    );
+  }
 }
