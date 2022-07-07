@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Department } from 'src/app/models/department';
 
 
 @Component({
@@ -6,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './departments.component.html',
 })
 export class DepartmentsComponent implements OnInit {
+
+  departments: Department[];
 
   constructor() { }
 

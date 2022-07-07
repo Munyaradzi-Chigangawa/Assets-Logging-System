@@ -1,4 +1,4 @@
-export class Projector {
+interface Projector {
     projectorId: number;
     projectorName: string;
     projectorModel: string;
