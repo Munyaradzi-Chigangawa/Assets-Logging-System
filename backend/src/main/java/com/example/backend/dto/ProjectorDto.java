@@ -15,6 +15,8 @@ public class ProjectorDto implements Serializable {
     private String projectorModel;
     @NotEmpty(message = "Projector Serial Number is Required.")
     private String projectorNumber;
+    @NotEmpty(message = "Projector Status is Required.")
+    private String projectorStatus;
     private Timestamp createdAt;
     private Timestamp updatedAt;
 

@@ -24,6 +24,7 @@ public class ProjectorService {
                 .projectorModel(projector.getProjectorModel())
                 .projectorName(projector.getProjectorName())
                 .projectorNumber(projector.getProjectorNumber())
+                .projectorStatus(projector.getProjectorStatus())
                 .createdAt(projector.getCreatedAt())
                 .updatedAt(projector.getUpdatedAt())
                 .build();

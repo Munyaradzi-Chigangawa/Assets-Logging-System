@@ -29,6 +29,7 @@ public class Projector implements Serializable {
     private String projectorName;
     private String projectorModel;
     private String projectorNumber;
+    private String projectorStatus;
     @CreationTimestamp
     private Timestamp createdAt;
     @UpdateTimestamp
