@@ -29,47 +29,18 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <tr>
-                    <td>Dakota Rice</td>
-                    <td>Niger</td>
-                    <td>Oud-Turnhout</td>
-                    <td class=" text-center">$36,738</td>
-                  </tr>
-                  <tr>
-                    <td>Minerva Hooper</td>
-                    <td>CuraÃ§ao</td>
-                    <td>Sinaai-Waas</td>
-                    <td class=" text-center">$23,789</td>
-                  </tr>
-                  <tr>
-                    <td>Sage Rodriguez</td>
-                    <td>Netherlands</td>
-                    <td>Baileux</td>
-                    <td class=" text-center">$56,142</td>
-                  </tr>
-                  <tr>
-                    <td>Philip Chaney</td>
-                    <td>Korea, South</td>
-                    <td>Overland Park</td>
-                    <td class=" text-center">$38,735</td>
-                  </tr>
-                  <tr>
-                    <td>Doris Greene</td>
-                    <td>Malawi</td>
-                    <td>Feldkirchen in KÃ¤rnten</td>
-                    <td class=" text-center">$63,542</td>
-                  </tr>
-                  <tr>
-                    <td>Mason Porter</td>
-                    <td>Chile</td>
-                    <td>Gloucester</td>
-                    <td class=" text-center">$78,615</td>
-                  </tr>
-                  <tr>
-                    <td>Jon Porter</td>
-                    <td>Portugal</td>
-                    <td>Gloucester</td>
-                    <td class=" text-center">$98,615</td>
+                  <tr *ngFor="let laptop of laptops">
+                    <td>{{ laptop.id}}</td>
+                    <td>{{ laptop.name}}</td>
+                    <td>{{ laptop.model}}</td>
+                    <td>{{ laptop.brand}}</td>
+                    <td>{{ laptop.serial_number}}</td>
+                    <td>{{ laptop.processor}}</td>
+                    <td>{{ laptop.ram}}</td>
+                    <td>{{ laptop.storage}}</td>
+                    <td>{{ laptop.status}}</td>
+                    <td>{{ laptop.created_at}}</td>
+                    <td>{{ laptop.updated_at}}</td>
                   </tr>
                 </tbody>
               </table>
