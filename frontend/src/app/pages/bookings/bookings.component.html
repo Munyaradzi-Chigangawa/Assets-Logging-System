@@ -17,23 +17,28 @@
                   <tr>
                     <th>Id</th>
                     <th>Name</th>
+                    <th>Borrowed By</th>
                     <th>Model</th>
                     <th>Serial Number</th>
+                    <th>Borrowed Date</th>
+                    <th>Return Date</th>
                     <th>Status</th>
                     <th>Created At</th>
                     <th>Updated At</th>
-                    
                   </tr>
                 </thead>
                 <tbody>
                   <tr *ngFor = "let booking for bookings">
-                    <td> {{booking.id}} </td>
-                    <td> {{booking.name}} </td>
-                    <td> {{booking.model}} </td>
-                    <td> {{booking.serial_number}} </td>
-                    <td> {{booking.status}} </td>
-                    <td> {{booking.created_at}} </td>
-                    <td> {{booking.updated_at}} </td>
+                    <td> {{ booking.bookingId }} </td>
+                    <td> {{ booking.assetName }} </td>
+                    <td> {{ booking.borrowedBy }}</td>
+                    <td> {{ booking.model }} </td>
+                    <td> {{ booking.serialNumber }} </td>
+                    <td> {{ booking.borrowedDate }}</td>
+                    <td> {{ booking.returnDate }}</td>
+                    <td> {{ booking.status }} </td>
+                    <td> {{ booking.created_at }} </td>
+                    <td> {{ booking.updated_at }} </td>
                   </tr>
                 </tbody>
               </table>
