@@ -1,15 +1,19 @@
 import 'package:flutter/material.dart';
 
-class WelcomePage extends StatefulWidget {
-  const WelcomePage({Key? key}) : super(key: key);
+class WelcomeScreen extends StatefulWidget {
+  const WelcomeScreen({Key? key}) : super(key: key);
 
   @override
-  State<WelcomePage> createState() => _WelcomePageState();
+  State<WelcomeScreen> createState() => _WelcomeScreenState();
 }
 
-class _WelcomePageState extends State<WelcomePage> {
+class _WelcomeScreenState extends State<WelcomeScreen> {
   @override
   Widget build(BuildContext context) {
-    
+    return const Scaffold(
+      body: Padding(
+        padding: EdgeInsets.only(left: 30.0, right: 30.0,top:0, bottom: 0),
+        )
+    );
   }
 }
