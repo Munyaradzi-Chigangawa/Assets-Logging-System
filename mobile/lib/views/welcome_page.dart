@@ -11,9 +11,11 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
   @override
   Widget build(BuildContext context) {
     return const Scaffold(
-      body: Padding(
-        padding: EdgeInsets.only(left: 30.0, right: 30.0,top:0, bottom: 0),
-        )
+      body: Center(
+        gi
+          child: Text('Welcome'),
+        ),
+      ),
     );
   }
 }
