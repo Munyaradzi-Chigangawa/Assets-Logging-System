@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mobile/views/auth/login.dart';
 
 import '../constants/button.dart';
 
@@ -79,12 +80,12 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
               ),
               //Text("don't have social accounts?") ,
               BigButton(
-                // child: Text('Authentication >>>', style: TextStyle(color: Theme.of(context).primaryColor),),
-                onPressed: () {},
-                child: const Text(
-                  'Sign In',
-                  //style: TextStyle(color: Theme.of(context).primaryColor),
+                child: Text('Sign In', style: TextStyle(color: Theme.of(context).cardColor, fontWeight: FontWeight.w400),
                 ),
+                onPressed: () {
+                  Navigator.push(
+                      context, MaterialPageRoute(builder: (_) => const Login()));
+                },
               ),
 
               const SizedBox(
