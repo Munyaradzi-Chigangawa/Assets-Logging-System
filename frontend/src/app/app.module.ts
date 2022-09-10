@@ -19,6 +19,9 @@ import { ProjectorsComponent } from './pages/projectors/projectors.component';
 import { DepartmentsComponent } from './pages/departments/departments.component';
 import { PeopleComponent } from './pages/people/people.component';
 import { AuthGuardService } from "./services/auth-guard.service";
+import { AddProjectorComponent } from './pages/projectors/add-projector/add-projector.component';
+import { EditProjectorComponent } from './pages/projectors/edit-projector/edit-projector.component';
+import { ViewProjectorComponent } from './pages/projectors/view-projector/view-projector.component';
 
 @NgModule({
   imports: [
@@ -31,7 +34,7 @@ import { AuthGuardService } from "./services/auth-guard.service";
     AppRoutingModule,
     ToastrModule.forRoot()
   ],
-  declarations: [AppComponent, AdminLayoutComponent, AuthLayoutComponent, BookingsComponent, LaptopsComponent, ProjectorsComponent, DepartmentsComponent, PeopleComponent],
+  declarations: [AppComponent, AdminLayoutComponent, AuthLayoutComponent, BookingsComponent, LaptopsComponent, ProjectorsComponent, DepartmentsComponent, PeopleComponent, AddProjectorComponent, EditProjectorComponent, ViewProjectorComponent],
   providers: [AuthGuardService],
   bootstrap: [AppComponent]
 })

@@ -5,7 +5,6 @@ import com.example.backend.Repositories.ProjectorRepository;
 import com.example.backend.dto.ProjectorDto;
 import com.example.backend.exceptions.ProjectorNotFound;
 import lombok.RequiredArgsConstructor;
-import org.hibernate.validator.constraints.Range;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -23,7 +22,7 @@ public class ProjectorService {
         Projector projector1 = Projector.builder()
                 .projectorModel(projector.getProjectorModel())
                 .projectorName(projector.getProjectorName())
-                .projectorNumber(projector.getProjectorNumber())
+                .projectorSerialNumber(projector.getProjectorSerialNumber())
                 .projectorStatus(projector.getProjectorStatus())
                 .createdAt(projector.getCreatedAt())
                 .updatedAt(projector.getUpdatedAt())

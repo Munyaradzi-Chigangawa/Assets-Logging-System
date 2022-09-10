@@ -6,6 +6,7 @@ import { AuthLayoutRoutes } from './auth-layout.routing';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HttpClientModule } from "@angular/common/http";
 import { LoginComponent } from 'src/app/pages/auth/login/login.component';
+
 @NgModule({
   imports: [
     CommonModule,

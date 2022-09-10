@@ -10,8 +10,7 @@
 </div>
 <div class="col-lg-4 col-md-6 ml-auto mr-auto">
     <div class="card card-login">
-        <form class="form" method="POST" action="{{ ('login') }}">
-            
+        <form class="form" >
             <div class="card-header card-header-primary text-center">
                 <h3 class="card-title">Login</h3>
                 <br>
@@ -23,7 +22,7 @@
                             <i class="tim-icons icon-email-85"></i>
                         </span>
                     </div>
-                    <input type="text" class="form-control" placeholder="Email" name="email">
+                    <input type="text" class="form-control" placeholder="Email" name="email" [(ngModel)]="user.username">
                 </div>
                 <div class="input-group">
                     <div class="input-group-prepend">
@@ -31,11 +30,11 @@
                             <i class="tim-icons icon-lock-circle"></i>
                         </span>
                     </div>
-                    <input type="password" class="form-control" placeholder="Password" name="password">
+                    <input type="password" class="form-control" placeholder="Password" name="password" [(ngModel)]="user.password">
                 </div>
             </div>
             <div class="card-footer text-center">
-                <button type="submit" class="btn btn-fill">Login </button>
+                <button type="submit" class="btn btn-fill" (click)="signIn()">Login </button>
             </div>
             <br>
         </form>

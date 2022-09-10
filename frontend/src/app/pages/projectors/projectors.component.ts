@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Projector } from 'src/app/models/projector';
 import { ProjectorService } from 'src/app/services/projector.service';
 
 @Component({
@@ -23,4 +24,5 @@ export class ProjectorsComponent implements OnInit {
     console.log(data)},
     );
   }
+
 }

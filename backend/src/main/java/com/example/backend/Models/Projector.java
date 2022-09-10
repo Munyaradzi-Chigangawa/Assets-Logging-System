@@ -28,7 +28,7 @@ public class Projector implements Serializable {
     @Column(name = "projector_name", columnDefinition = "varchar(255)")
     private String projectorName;
     private String projectorModel;
-    private String projectorNumber;
+    private String projectorSerialNumber;
     private String projectorStatus;
     @CreationTimestamp
     private Timestamp createdAt;

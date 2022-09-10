@@ -8,11 +8,11 @@ import { Department } from '../models/department';
 })
 export class DepartmentService {
 
-  private baseUrl = 'http://localhost:8080/api/getDepartments';
+  private baseUrl = 'http://localhost:8080/api/v1';
 
   constructor(private httpClient: HttpClient) { }
 
   getDepartmentsList() : Observable<Department[]> {
-    return this.httpClient.get<Department[]>(`${this.baseUrl}`);
+    return this.httpClient.get<Department[]>(`${this.baseUrl}/getDepartments`);
   }
 }

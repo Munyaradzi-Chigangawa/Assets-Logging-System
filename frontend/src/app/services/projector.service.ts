@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { Projector } from '../models/projector';
 
 
 @Injectable({
@@ -8,11 +9,17 @@ import { Observable } from 'rxjs';
 })
 export class ProjectorService {
 
-  private baseUrl = 'http://localhost:8080/api/getProjectors';
+  private baseUrl = 'http://localhost:8080/api/v1';
 
   constructor(private httpClient : HttpClient) { }
 
   getProjectorsList() : Observable<Projector[]> {
-    return this.httpClient.get<Projector[]>(`${this.baseUrl}`);
+    return this.httpClient.get<Projector[]>(`${this.baseUrl}/getProjectors`);
 }
+
+
+  // Consuming Create Endpoint
+  public addProjector (projector: Projector): Observable<Projector> {
+    return this.httpClient.post<Projector>(`${this.baseUrl}/addProjector`, projector)
+  }
 }
