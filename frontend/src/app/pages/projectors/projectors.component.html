@@ -32,15 +32,15 @@
                   <td> {{projector.createdAt}} </td>
                   <td> {{projector.updatedAt}} </td>
                   <td>
-                    <button class="btn btn-outline-info" [routerLink]="">
+                    <button class="btn btn-outline-info" [routerLink]="'/view-projector/'+ projector.projectorId">
 
                       <i class="fa-solid fa-eye"></i>
                     </button>
-                    <a class="btn btn-outline-success" [routerLink]="">
+                    <a class="btn btn-outline-success" [routerLink]="'/edit-projector/' + projector.projectorId">
                       <i class="fa-solid fa-square-pen"></i>
                     </a>
                     <button class="btn btn-outline-danger">
-                      <i class="fa-solid fa-trash-can"></i>
+                      <i class="fa-solid fa-trash-can" (click)="deleteProjector(projector.projectorId)"></i>
                     </button>
                   </td>
                 </tr>

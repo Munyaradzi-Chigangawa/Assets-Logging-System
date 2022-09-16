@@ -55,7 +55,7 @@ public class UserService {
     }
 
 
-    // Get Sender
+    // Get User
     public User findById(Long userId) {
         return userRepository.findById(userId).orElseThrow(()-> new UserNotFound("Sender with ID "+userId+" was not found"));
     }

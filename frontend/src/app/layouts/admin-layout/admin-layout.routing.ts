@@ -8,6 +8,8 @@ import { ProjectorsComponent } from "src/app/pages/projectors/projectors.compone
 import { DepartmentsComponent } from "src/app/pages/departments/departments.component";
 import { PeopleComponent } from "src/app/pages/people/people.component";
 import { AddProjectorComponent } from "src/app/pages/projectors/add-projector/add-projector.component";
+import { ViewProjectorComponent } from "src/app/pages/projectors/view-projector/view-projector.component";
+import { EditProjectorComponent } from "src/app/pages/projectors/edit-projector/edit-projector.component";
 
 export const AdminLayoutRoutes: Routes = [
   { path: "dashboard", component: DashboardComponent },
@@ -17,5 +19,7 @@ export const AdminLayoutRoutes: Routes = [
   { path: "departments", component: DepartmentsComponent },
   { path: "people", component: PeopleComponent },
   { path: "user", component: UserComponent },
-  { path: "add-projector", component: AddProjectorComponent}
+  { path: "add-projector", component: AddProjectorComponent},
+  { path: "view-projector/:projectorId", component: ViewProjectorComponent},
+  { path: "edit-projector/:projectorId", component: EditProjectorComponent}
 ];

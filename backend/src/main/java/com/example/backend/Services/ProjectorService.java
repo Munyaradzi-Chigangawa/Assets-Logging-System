@@ -1,5 +1,4 @@
 package com.example.backend.Services;
-
 import com.example.backend.Models.Projector;
 import com.example.backend.Repositories.ProjectorRepository;
 import com.example.backend.dto.ProjectorDto;
@@ -7,8 +6,8 @@ import com.example.backend.exceptions.ProjectorNotFound;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import javax.transaction.Transactional;
+import java.util.Collections;
 import java.util.List;
 
 @Service
@@ -41,20 +40,23 @@ public class ProjectorService {
                 .orElseThrow(() -> new ProjectorNotFound("Projector id " + id + "was not found"));
     }
 
-    public Projector deleteProjector(Long id) {
-         projectorRepository.deleteById(id);
-        // return projectorRepository.findAll().get(0);
-        return null;
+    // Delete Recipient
+    public Projector deleteProjector (Long id) {
+       projectorRepository.deleteAllById(Collections.singleton(id));
+        return  null;
     }
 
-//    public Projector updateProjector(Long id, ProjectorDto projector) {
-//        Projector projector1 = Projector.builder()
-//                .projectorModel(projector.getProjectorModel())
-//                .projectorName(projector.getProjectorName())
-//                .projectorNumber(projector.getProjectorNumber())
-//                .createdAt(projector.getCreatedAt())
-//                .updatedAt(projector.getUpdatedAt())
-//                .build();
-//        return projectorRepository.save(projector1);
-//    }
+    // Update Recipient
+    public Projector updateProjector (ProjectorDto projectorDto, Long id) {
+        Projector projector = projectorRepository.findById(id)
+                .orElseThrow(() -> new ProjectorNotFound("No Projector Found"));
+        projector.setProjectorModel(projectorDto.getProjectorModel());
+        projector.setProjectorName(projectorDto.getProjectorName());
+        projector.setProjectorSerialNumber(projectorDto.getProjectorSerialNumber());
+        projector.setProjectorStatus(projectorDto.getProjectorStatus());
+        projector.setUpdatedAt(projectorDto.getUpdatedAt());
+        return projectorRepository.save(projector);
+    }
+
+
 }

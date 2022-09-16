@@ -25,4 +25,16 @@ export class ProjectorsComponent implements OnInit {
     );
   }
 
+  // DeleteProjector
+  public deleteProjector(projectorId: number) {
+    this.projectorService.deleteProjector(projectorId).subscribe(
+      (response: void) => {
+        console.log(response);
+        alert("Recipient deleted successfully");
+        this.getProjectors();
+      },
+      (error: any) => console.log(error)
+    );
+  }
+
 }

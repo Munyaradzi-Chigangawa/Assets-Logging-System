@@ -11,15 +11,25 @@ export class ProjectorService {
 
   private baseUrl = 'http://localhost:8080/api/v1';
 
-  constructor(private httpClient : HttpClient) { }
+  constructor(private httpClient: HttpClient) { }
 
-  getProjectorsList() : Observable<Projector[]> {
+  getProjectorsList(): Observable<Projector[]> {
     return this.httpClient.get<Projector[]>(`${this.baseUrl}/getProjectors`);
-}
+  }
 
 
   // Consuming Create Endpoint
-  public addProjector (projector: Projector): Observable<Projector> {
+  public addProjector(projector: Projector): Observable<Projector> {
     return this.httpClient.post<Projector>(`${this.baseUrl}/addProjector`, projector)
   }
+
+  // Consuming Delete Endpoint
+  public deleteProjector(projectorId: number): Observable<void> {
+    return this.httpClient.delete<void>(`${this.baseUrl}/deleteProjector/${projectorId}`)
+  }
+
+  // Consuming Read By Id Endpoint
+  public getProjector (projectorId: number): Observable<Projector> {
+    return this.httpClient.get<Projector>(`${this.baseUrl}/getProjector/${projectorId}`)
+    }
 }

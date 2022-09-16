@@ -38,4 +38,4 @@ import { ViewProjectorComponent } from './pages/projectors/view-projector/view-p
   providers: [AuthGuardService],
   bootstrap: [AppComponent]
 })
-export class AppModule {}
+export class AppModule { }
