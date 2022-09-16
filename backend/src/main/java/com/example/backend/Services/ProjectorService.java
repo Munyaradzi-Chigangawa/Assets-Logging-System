@@ -40,13 +40,13 @@ public class ProjectorService {
                 .orElseThrow(() -> new ProjectorNotFound("Projector id " + id + "was not found"));
     }
 
-    // Delete Recipient
+    // Delete Projector
     public Projector deleteProjector (Long id) {
        projectorRepository.deleteAllById(Collections.singleton(id));
         return  null;
     }
 
-    // Update Recipient
+    // Update Projector
     public Projector updateProjector (ProjectorDto projectorDto, Long id) {
         Projector projector = projectorRepository.findById(id)
                 .orElseThrow(() -> new ProjectorNotFound("No Projector Found"));

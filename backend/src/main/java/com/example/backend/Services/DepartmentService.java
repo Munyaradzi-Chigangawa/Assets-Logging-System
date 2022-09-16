@@ -2,9 +2,12 @@ package com.example.backend.Services;
 
 
 import com.example.backend.Models.Department;
+import com.example.backend.Models.Projector;
 import com.example.backend.Repositories.DepartmentRepository;
 import com.example.backend.dto.DepartmentDto;
+import com.example.backend.dto.ProjectorDto;
 import com.example.backend.exceptions.DepartmentNotFound;
+import com.example.backend.exceptions.ProjectorNotFound;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -45,6 +48,16 @@ public class DepartmentService {
         return null;
     }
 
+    // Update Department
+    public Department updateDepartment (DepartmentDto departmentDto, Long id) {
+        Department department = departmentRepository.findById(id)
+                .orElseThrow(() -> new DepartmentNotFound("No Department Found"));
+                department.setDepartmentName(department.getDepartmentName());
+                department.setDepartmentCode(department.getDepartmentCode());
+                department.setDepartmentDescription(department.getDepartmentDescription());
+                department.setCreatedAt(department.getCreatedAt());
+                department.setUpdatedAt(department.getUpdatedAt());
+        return departmentRepository.save(department);
 
-
+        }
 }

@@ -43,9 +43,9 @@ public class DepartmentController {
         return new ResponseEntity<>(departmentService.deleteDepartment(id), HttpStatus.OK);
     }
 
-//    @PutMapping( value = "/updateDepartment/{id}")
-//    public ResponseEntity<Department> updateDepartment(@PathVariable Long id, @RequestBody DepartmentDto department) {
-//        log.info("Department Successfully Updated.");
-//        return new ResponseEntity<>(departmentService.updateDepartment(id, department), HttpStatus.OK);
-//    }
+    @PutMapping( value = "/updateDepartment/{id}")
+    public ResponseEntity<Department> updateDepartment(@PathVariable Long id, @RequestBody DepartmentDto department) {
+        log.info("Department Successfully Updated.");
+        return new ResponseEntity<>(departmentService.updateDepartment(department, id), HttpStatus.OK);
+    }
 }
