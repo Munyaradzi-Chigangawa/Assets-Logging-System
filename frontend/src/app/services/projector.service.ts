@@ -29,7 +29,12 @@ export class ProjectorService {
   }
 
   // Consuming Read By Id Endpoint
-  public getProjector (projectorId: number): Observable<Projector> {
+  public getProjector(projectorId: number): Observable<Projector> {
     return this.httpClient.get<Projector>(`${this.baseUrl}/getProjector/${projectorId}`)
-    }
+  }
+
+  // Consuming Update Endpoint
+  public updateProjector (projectorId: number, projector: Projector): Observable<Projector> {
+    return this.httpClient.put<Projector>(`${this.baseUrl}/updateProjector/${projectorId}`, projector)
+  }
 }
