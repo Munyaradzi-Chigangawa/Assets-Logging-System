@@ -9,9 +9,10 @@ import { ProjectorService } from 'src/app/services/projector.service';
   styleUrls: ['./view-projector.component.scss']
 })
 export class ViewProjectorComponent implements OnInit {
-  projector: Projector = new Projector();
-
+  
   private projectorId!: number;
+  projector: Projector = new Projector();
+ 
  
  
   constructor(private projectorService: ProjectorService, private route: ActivatedRoute,
@@ -30,7 +31,7 @@ export class ViewProjectorComponent implements OnInit {
       }  
 
   onSubmit() {
-    this.router.navigate["projectors"]
+    this.router.navigate["/projectors"]
   }
 
 }

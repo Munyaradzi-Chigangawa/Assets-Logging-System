@@ -3,23 +3,24 @@
         <div class=" col-md-8">
             <div class=" card">
                 <div class=" card-header">
-                    <h5 class=" title">View Projector {{ projector.projectorName }}</h5>
+                    <h5 class=" title">Viewing Projector: {{ projector.projectorName }}</h5>
                 </div>
                 <div class=" card-body">
                     <form (ngSubmit)="onSubmit()">
                         <div class=" row">
                             <div class=" col-md-5 pr-md-1">
                                 <div class=" form-group">
-                                    <label> Projector Name </label>
-                                    <input class=" form-control" placeholder="Name" type="text" disabled=""
-                                        [(ngModel)]="projector.projectorName" />
+                                    <label for="projectorName"> Projector Name </label>
+                                    <input class=" form-control" placeholder="Projector Name" type="text" id="projectorName"
+                                        [(ngModel)]="projector.projectorName" name="projector.projectorName" />
+
                                 </div>
                             </div>
                             <div class=" col-md-5 px-md-1">
                                 <div class=" form-group">
                                     <label for="projectorModel"> Projector Model </label>
                                     <input class=" form-control" id="projectorModel" placeholder="Model" type="text"
-                                        disabled="" [(ngModel)]="projector.projectorModel" />
+                                        value = "projector.projectorModel" [(ngModel)]="projector.projectorModel" name="projector.projectorModel"  />
                                 </div>
                             </div>
                         </div>
@@ -27,19 +28,18 @@
                             <div class=" col-md-6 pr-md-1">
                                 <div class=" form-group">
                                     <label> Serial Number </label>
-                                    <input class=" form-control" placeholder="Serial Number" type="text" disabled=""
-                                        [(ngModel)]="projector.projectorSerialNumber" />
+                                    <input class=" form-control" placeholder="Serial Number" type="text"
+                                        [(ngModel)]="projector.projectorSerialNumber" name="projector.projectorSerialNumber" >
                                 </div>
                             </div>
                             <div class=" col-md-5 pr-md-1">
                                 <div class=" form-group">
                                     <label> Status</label>
-                                    <input class=" form-control" placeholder="Status" type="text" disabled=""
-                                        [(ngModel)]="projector.projectorStatus" />
+                                    <input class=" form-control" placeholder="Status" type="text" 
+                                        [(ngModel)]="projector.projectorStatus" name="projector.projectorStatus" />
                                 </div>
                             </div>
                         </div>
-                        <!-- <button class=" btn btn-outline-success" type="submit">Back</button> -->
                     </form>
                 </div>
             </div>
