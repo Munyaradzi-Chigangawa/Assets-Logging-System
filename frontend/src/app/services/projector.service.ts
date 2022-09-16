@@ -13,10 +13,10 @@ export class ProjectorService {
 
   constructor(private httpClient: HttpClient) { }
 
+  // Consuming Read All Endpoint
   getProjectorsList(): Observable<Projector[]> {
     return this.httpClient.get<Projector[]>(`${this.baseUrl}/getProjectors`);
   }
-
 
   // Consuming Create Endpoint
   public addProjector(projector: Projector): Observable<Projector> {

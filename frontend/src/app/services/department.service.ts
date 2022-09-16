@@ -12,7 +12,19 @@ export class DepartmentService {
 
   constructor(private httpClient: HttpClient) { }
 
-  getDepartmentsList() : Observable<Department[]> {
+  // Read All Departments Endpoint
+  public getDepartmentsList(): Observable<Department[]> {
     return this.httpClient.get<Department[]>(`${this.baseUrl}/getDepartments`);
   }
+
+  // Add Department Endpoint
+  public addDepartment(department: Department): Observable<Department> {
+    return this.httpClient.post<Department>(`${this.baseUrl}/addDepartment`, department)
+  }
+
+  // Delete Department Endpoint
+  public deleteDepartment(departmentId: number): Observable<void> {
+    return this.httpClient.delete<void>(`${this.baseUrl}/deleteDepartment/${departmentId}`)
+  }
+
 }

@@ -7,7 +7,7 @@
         </div>
 
         <div class=" card-footer">
-          <a class="btn btn-outline-success" routerLink="/add-projector"> Add Projector</a>
+          <a class="btn btn-outline btn-success" routerLink="/add-projector"> Add Projector</a>
         </div>
         <div class=" card-body">
           <div class=" table-responsive">
@@ -32,15 +32,15 @@
                   <td> {{projector.createdAt}} </td>
                   <td> {{projector.updatedAt}} </td>
                   <td>
-                    <button class="btn btn-outline-info" [routerLink]="'/view-projector/'+ projector.projectorId">
+                    <button class="btn btn-outline btn-info" [routerLink]="'/view-projector/'+ projector.projectorId">
 
                       <i class="tim-icons icon-notes"></i> View
                     </button>
 
-                    <button class="btn btn-outline-success" [routerLink]="'/edit-projector/' + projector.projectorId">
+                    <button class="btn btn-outline btn-success" [routerLink]="'/edit-projector/' + projector.projectorId">
                       <i class="tim-icons icon-pencil"> </i> Edit
                     </button>
-                    <button class="btn btn-outline-danger">
+                    <button class="btn btn-fill btn-danger">
                       <i class="tim-icons icon-trash-simple" (click)="deleteProjector(projector.projectorId)"></i> Delete
                     </button>
                   </td>

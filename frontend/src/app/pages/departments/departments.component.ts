@@ -9,6 +9,7 @@ import { DepartmentService } from 'src/app/services/department.service';
 })
 export class DepartmentsComponent implements OnInit {
 
+  departmentId: number;
   departments: Department[];
 
   constructor(private departmentService: DepartmentService) { }
@@ -24,6 +25,18 @@ export class DepartmentsComponent implements OnInit {
     data => {
       this.departments = data
     console.log(data)},
+    );
+  }
+
+  // Delete Department
+  public deleteDepartment(departmentId: number) {
+    this.departmentService.deleteDepartment(departmentId).subscribe(
+      (response: void) => {
+        console.log(response);
+        alert("Department deleted successfully");
+        this.getDepartments();
+      },
+      (error: any) => console.log(error)
     );
   }
 
