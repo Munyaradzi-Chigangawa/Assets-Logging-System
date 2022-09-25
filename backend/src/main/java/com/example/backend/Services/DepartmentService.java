@@ -52,12 +52,13 @@ public class DepartmentService {
     public Department updateDepartment (DepartmentDto departmentDto, Long id) {
         Department department = departmentRepository.findById(id)
                 .orElseThrow(() -> new DepartmentNotFound("No Department Found"));
-                department.setDepartmentName(department.getDepartmentName());
-                department.setDepartmentCode(department.getDepartmentCode());
-                department.setDepartmentDescription(department.getDepartmentDescription());
-                department.setCreatedAt(department.getCreatedAt());
-                department.setUpdatedAt(department.getUpdatedAt());
+                department.setDepartmentName(departmentDto.getDepartmentName());
+                department.setDepartmentCode(departmentDto.getDepartmentCode());
+                department.setDepartmentDescription(departmentDto.getDepartmentDescription());
+                department.setCreatedAt(departmentDto.getCreatedAt());
+                department.setUpdatedAt(departmentDto.getUpdatedAt());
         return departmentRepository.save(department);
 
         }
+
 }
