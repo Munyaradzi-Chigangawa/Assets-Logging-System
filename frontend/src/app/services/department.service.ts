@@ -17,6 +17,11 @@ export class DepartmentService {
     return this.httpClient.get<Department[]>(`${this.baseUrl}/getDepartments`);
   }
 
+  // Get Department by Id
+  public getDepartment(departmentId: number): Observable<Department> {
+    return this.httpClient.get<Department>(`${this.baseUrl}/getDepartment/${departmentId}`)
+  }
+
   // Add Department Endpoint
   public addDepartment(department: Department): Observable<Department> {
     return this.httpClient.post<Department>(`${this.baseUrl}/addDepartment`, department)
@@ -27,4 +32,8 @@ export class DepartmentService {
     return this.httpClient.delete<void>(`${this.baseUrl}/deleteDepartment/${departmentId}`)
   }
 
+  // Update Department
+  public updateDepartment(departmentId: number, department: Department): Observable<Department> {
+    return this.httpClient.put<Department>(`${this.baseUrl}/updateDepartment/${departmentId}`, department)
+  }
 }

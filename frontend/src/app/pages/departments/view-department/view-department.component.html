@@ -1,1 +1,38 @@
-<p>view-department works!</p>
+<div class=" content">
+    <div class=" row">
+        <div class=" col-md-8">
+            <div class=" card">
+                <div class=" card-header">
+                    <h5 class=" title">Department: {{department.departmentName}}</h5>
+                </div>
+                <div class=" card-body">
+                    <form>
+                        <div class=" row">
+                            <div class=" col-md-5 pr-md-1">
+                                <div class=" form-group">
+                                    <label> Department Name </label>
+                                    <input class=" form-control" placeholder="Name" type="text"
+                                        [(ngModel)]="department.departmentName" name="departmentName"/>
+                                </div>
+                            </div>
+                            <div class=" col-md-5 px-md-1">
+                                <div class=" form-group">
+                                    <label> Department Code </label>
+                                    <input class=" form-control" placeholder="Code" type="text"
+                                        [(ngModel)]="department.departmentCode" name = "departmentCode"/>
+                                </div>
+                            </div>
+                        </div>
+                        <div class=" row">
+                            <div class=" col-md-10 pr-md-1">
+                                <div class=" form-group">
+                                    <label> Description </label>
+                                    <input class=" form-control" placeholder="Description" type="text"
+                                        [(ngModel)]="department.departmentDescription" name = "departmentDescription"/>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>

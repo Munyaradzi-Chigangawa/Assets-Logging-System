@@ -34,7 +34,7 @@ export class EditProjectorComponent implements OnInit {
 
 
   
-  // Add Projector
+  // Update Projector
   updateProjector() {
     this.projectorService.updateProjector(this.projectorId, this.projector).subscribe(
       data => {

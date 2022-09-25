@@ -25,7 +25,7 @@ export const AdminLayoutRoutes: Routes = [
   { path: "view-projector/:projectorId", component: ViewProjectorComponent },
   { path: "edit-projector/:projectorId", component: EditProjectorComponent },
   { path: "add-department", component: AddDepartmentComponent },
-  { path: "edit-department:departmentId", component: EditDepartmentComponent },
-  { path: "view-department:departmentId", component: ViewDepartmentComponent }
+  { path: "edit-department/:departmentId", component: EditDepartmentComponent },
+  { path: "view-department/:departmentId", component: ViewDepartmentComponent }
 
 ];
