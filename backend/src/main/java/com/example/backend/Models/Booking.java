@@ -1,6 +1,7 @@
 package com.example.backend.Models;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.CreationTimestamp;
@@ -14,6 +15,7 @@ import java.time.LocalDateTime;
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
+@Builder
 @Table(name = "bookings")
 
 public class Booking {
@@ -33,7 +35,7 @@ public class Booking {
     private String borrowedDate;
     private String returnDate;
     private String model;
-    private String quantity;
+//    private String quantity;
     private String status;
     @CreationTimestamp
     private LocalDateTime createdAt;

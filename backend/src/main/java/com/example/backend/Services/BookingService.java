@@ -1,6 +1,4 @@
 package com.example.backend.Services;
-
-
 import com.example.backend.Models.Booking;
 import com.example.backend.Models.People;
 import com.example.backend.Repositories.BookingRepository;
@@ -8,7 +6,6 @@ import com.example.backend.dto.BookingDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import javax.transaction.Transactional;
 import java.util.List;
 
@@ -30,6 +27,13 @@ public class BookingService {
         Booking booking1 = Booking.builder()
                 .assetName(booking.getAssetName())
                 .borrowedBy(booking.getBorrowedBy())
+                .serialNumber(booking.getSerialNumber())
+                .borrowedDate(booking.getBorrowedDate())
+                .returnDate(booking.getReturnDate())
+                .model(booking.getModel())
+                .status(booking.getStatus())
+                .createdAt(booking.getCreatedAt())
+                .updatedAt(booking.getUpdatedAt())
                 .build();
         return bookingRepository.save(booking1);
     }

@@ -21,6 +21,7 @@ public class PeopleService {
     @Autowired
     private final PeopleRepository peopleRepository;
 
+//    Save People
     public People save(PeopleDto people) {
         People people1 = People.builder()
                 .name(people.getName())

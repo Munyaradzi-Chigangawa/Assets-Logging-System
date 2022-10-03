@@ -14,10 +14,10 @@ import java.sql.Timestamp;
 @AllArgsConstructor
 @Builder
 @Table(name = "people")
-public class People implements Serializable {
+public class People {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
-    @Column(length = 100)
+    @Column(length = 100, name = "people_id")
     private Long peopleId;
     @Column(name = "name", columnDefinition = "varchar(255)")
     private String name;

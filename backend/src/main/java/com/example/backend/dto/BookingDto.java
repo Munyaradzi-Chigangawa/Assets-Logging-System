@@ -7,6 +7,8 @@ import lombok.NoArgsConstructor;
 import javax.validation.constraints.NotEmpty;
 import java.io.Serializable;
 import java.sql.Timestamp;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 @Data
 @Builder
@@ -26,10 +28,10 @@ public class BookingDto implements Serializable {
     @NotEmpty(message = "Model is Required.")
     private String model;
     @NotEmpty(message = "Quantity is Required.")
-    private String quantity;
-    @NotEmpty(message = "Status is Required.")
+//    private String quantity;
+//    @NotEmpty(message = "Status is Required.")
     private String status;
-    private Timestamp createdAt;
-    private Timestamp updatedAt;
+    private LocalDateTime createdAt;
+    private LocalDateTime updatedAt;
 
 }

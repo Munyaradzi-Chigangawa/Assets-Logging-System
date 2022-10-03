@@ -31,17 +31,17 @@ public class PeopleController {
         return new ResponseEntity<>(peopleService.save(people), HttpStatus.CREATED);
     }
 
-    @RequestMapping(value = "/getPeople")
-    public List<People> getPeople() {
+    @GetMapping(value = "/getPeople")
+    public ResponseEntity <List<People>> getPeople() {
         log.info("People Successfully Retrieved.");
-        return peopleService.getAllPeople();
+        return new ResponseEntity<>(peopleService.getAllPeople(), HttpStatus.OK);
     }
 
-    @RequestMapping(value = "/getPeople/{id}")
-    public People getPeople(@PathVariable Long id) {
-        log.info("People Successfully Retrieved.");
-        return peopleService.getPeople(id);
-    }
+//    @RequestMapping(value = "/getPeople/{id}")
+//    public People getPeople(@PathVariable Long id) {
+//        log.info("People Successfully Retrieved.");
+//        return peopleService.getPeople(id);
+//    }
 
     @DeleteMapping(value = "/deletePeople/{id}")
     public People deletePeople(@PathVariable Long id) {
