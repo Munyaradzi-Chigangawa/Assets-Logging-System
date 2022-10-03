@@ -25,6 +25,7 @@ public class People implements Serializable {
     private String designation;
     private String phone;
     private String email;
+    private String Password;
     @CreationTimestamp
     private Timestamp createdAt;
     @UpdateTimestamp

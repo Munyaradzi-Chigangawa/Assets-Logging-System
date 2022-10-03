@@ -24,6 +24,7 @@ public class PeopleDto implements Serializable {
     private String phone;
     @NotEmpty(message = "Email is Required.")
     private String email;
+    @NotEmpty(message = "Password is Required.")
     private Timestamp createdAt;
     private Timestamp updatedAt;
 

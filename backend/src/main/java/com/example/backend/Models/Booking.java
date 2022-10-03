@@ -1,4 +1,5 @@
 package com.example.backend.Models;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -7,6 +8,7 @@ import org.hibernate.annotations.UpdateTimestamp;
 
 import javax.persistence.*;
 import java.sql.Timestamp;
+import java.time.LocalDateTime;
 
 @Data
 @Entity
@@ -20,6 +22,10 @@ public class Booking {
     @Id
     @Column(length = 100)
     private Long bookingId;
+    @JsonIgnore
+    @ManyToOne
+    @JoinColumn(name = "people_id", foreignKey = @ForeignKey(name = "people_id_fk"), referencedColumnName = "people_id")
+    private People people;
     @Column(name = "asset_name", columnDefinition = "varchar(255)")
     private String assetName;
     private String borrowedBy;
@@ -30,8 +36,8 @@ public class Booking {
     private String quantity;
     private String status;
     @CreationTimestamp
-    private Timestamp createdAt;
+    private LocalDateTime createdAt;
     @UpdateTimestamp
-    private Timestamp updatedAt;
+    private LocalDateTime updatedAt;
 
 }

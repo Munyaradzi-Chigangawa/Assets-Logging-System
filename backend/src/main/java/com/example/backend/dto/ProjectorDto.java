@@ -2,7 +2,7 @@ package com.example.backend.dto;
 import lombok.*;
 import javax.validation.constraints.NotEmpty;
 import java.io.Serializable;
-import java.sql.Timestamp;
+import java.time.LocalDateTime;
 
 @Data
 @NoArgsConstructor
@@ -17,7 +17,7 @@ public class ProjectorDto implements Serializable {
     private String projectorSerialNumber;
     @NotEmpty(message = "Projector Status is Required.")
     private String projectorStatus;
-    private Timestamp createdAt;
-    private Timestamp updatedAt;
+    private LocalDateTime createdAt;
+    private LocalDateTime updatedAt;
 
 }

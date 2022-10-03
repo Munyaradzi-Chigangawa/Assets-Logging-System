@@ -34,17 +34,20 @@ public class PeopleService {
         return peopleRepository.save(people1);
     }
 
+//    Get All People
     public List<People> getAllPeople() {
+
         return peopleRepository.findAll();
     }
 
-    public People getPeople(Long id) {
-        return peopleRepository.findById(id)
-                .orElseThrow(() -> new PersonNotFound("People id " + id + "was not found"));
+//    Get People By Id
+    public People findById(Long peopleId) {
+        return peopleRepository.findById(peopleId)
+                .orElseThrow(() -> new PersonNotFound("People id " + peopleId + "was not found"));
     }
 
-    public People deletePeople(Long id) {
-        peopleRepository.deleteById(id);
+    public People deletePeople(Long peopleId) {
+        peopleRepository.deleteById(peopleId);
         return null;
     }
 }
