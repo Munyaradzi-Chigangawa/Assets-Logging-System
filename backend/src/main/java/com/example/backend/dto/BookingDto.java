@@ -24,7 +24,7 @@ public class BookingDto implements Serializable {
     @NotEmpty(message = "Borrowed Date is Required.")
     private LocalDateTime borrowedDate;
     @NotEmpty(message = "Return Date is Required.")
-    private String returnDate;
+    private LocalDateTime returnDate;
     @NotEmpty(message = "Model is Required.")
     private String model;
 //    @NotEmpty(message = "Quantity is Required.")

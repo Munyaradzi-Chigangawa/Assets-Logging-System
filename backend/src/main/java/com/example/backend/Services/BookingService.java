@@ -44,4 +44,9 @@ public class BookingService {
         People people = peopleService.findById(peopleId);
         return bookingRepository.getBookingByPeople(people);
     }
+
+//    Get All Bookings
+    public List <Booking> getAllBookings() {
+        return bookingRepository.findAll();
+    }
 }

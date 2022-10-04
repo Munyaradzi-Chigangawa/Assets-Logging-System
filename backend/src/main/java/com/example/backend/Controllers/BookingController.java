@@ -32,6 +32,7 @@ public class BookingController {
     // Accept Booking Endpoint
 
 
+
     // Declining Booking Endpoint
 
 
@@ -41,4 +42,12 @@ public class BookingController {
         log.info("Bookings Retrieved.");
         return new ResponseEntity<>(bookingService.getBookings(peopleId), HttpStatus.OK);
     }
+
+//     All Bookings
+    @GetMapping(value = "/get-all-bookings")
+    public ResponseEntity<List<Booking>> getAllBookings() {
+        log.info("Bookings Retrieved.");
+        return new ResponseEntity<>(bookingService.getAllBookings(), HttpStatus.OK);
+    }
 }
+
