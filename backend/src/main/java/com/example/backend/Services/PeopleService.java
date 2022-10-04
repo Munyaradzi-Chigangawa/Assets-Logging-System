@@ -1,6 +1,4 @@
 package com.example.backend.Services;
-
-
 import com.example.backend.Models.People;
 import com.example.backend.Repositories.PeopleRepository;
 import com.example.backend.dto.PeopleDto;
@@ -8,7 +6,6 @@ import com.example.backend.exceptions.PersonNotFound;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import javax.transaction.Transactional;
 import java.util.List;
 
@@ -44,7 +41,7 @@ public class PeopleService {
 //    Get People By Id
     public People findById(Long peopleId) {
         return peopleRepository.findById(peopleId)
-                .orElseThrow(() -> new PersonNotFound("People id " + peopleId + "was not found"));
+                .orElseThrow(() -> new PersonNotFound("People id " + peopleId + " was not found"));
     }
 
     public People deletePeople(Long peopleId) {

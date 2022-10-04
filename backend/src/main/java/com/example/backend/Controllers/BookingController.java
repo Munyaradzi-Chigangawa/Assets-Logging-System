@@ -10,6 +10,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 
 @RestController
 @RequestMapping("api/v1")
@@ -23,8 +25,8 @@ public class BookingController {
     // Booking Endpoint
     @PostMapping(value = "/make-booking")
     public ResponseEntity <Booking> makeBooking (@RequestBody BookingDto booking, @RequestParam Long peopleId) {
-        log.info("Booked");
-        return new ResponseEntity<>(bookingService.save(booking, peopleId), HttpStatus.OK);
+        log.info("Successfully Booked.");
+        return new ResponseEntity<>(bookingService.save(booking, peopleId), HttpStatus.CREATED);
     }
 
     // Accept Booking Endpoint
@@ -34,4 +36,9 @@ public class BookingController {
 
 
     // Bookings for User Endpoint
+    @GetMapping( value = "/get-bookings")
+    public ResponseEntity<List<Booking>> getBookings(@RequestParam long peopleId) {
+        log.info("Bookings Retrieved.");
+        return new ResponseEntity<>(bookingService.getBookings(peopleId), HttpStatus.OK);
+    }
 }

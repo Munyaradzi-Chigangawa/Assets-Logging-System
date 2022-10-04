@@ -19,7 +19,7 @@ public class People {
     @Id
     @Column(length = 100, name = "people_id")
     private Long peopleId;
-    @Column(name = "name", columnDefinition = "varchar(255)")
+    @Column(columnDefinition = "varchar(255)")
     private String name;
     private String department;
     private String designation;

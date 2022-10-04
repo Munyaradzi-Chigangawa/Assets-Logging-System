@@ -6,6 +6,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
+import org.springframework.data.annotation.CreatedDate;
+import org.springframework.data.annotation.LastModifiedDate;
 
 import javax.persistence.*;
 import java.sql.Timestamp;
@@ -32,8 +34,10 @@ public class Booking {
     private String assetName;
     private String borrowedBy;
     private String serialNumber;
-    private String borrowedDate;
-    private String returnDate;
+    @CreatedDate
+    private LocalDateTime borrowedDate;
+    @LastModifiedDate
+    private LocalDateTime returnDate;
     private String model;
 //    private String quantity;
     private String status;
