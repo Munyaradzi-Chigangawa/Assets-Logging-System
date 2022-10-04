@@ -9,6 +9,7 @@ import org.hibernate.annotations.UpdateTimestamp;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.sql.Date;
 import java.sql.Timestamp;
 
 @Entity
@@ -28,7 +29,7 @@ public class Department implements Serializable {
     private String departmentCode;
     private String departmentDescription;
     @CreationTimestamp
-    private Timestamp createdAt;
+    private Date createdAt;
     @UpdateTimestamp
-    private Timestamp updatedAt;
+    private Date updatedAt;
 }

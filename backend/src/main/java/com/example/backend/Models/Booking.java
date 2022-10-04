@@ -12,6 +12,7 @@ import org.springframework.data.annotation.LastModifiedDate;
 import javax.persistence.*;
 import java.sql.Timestamp;
 import java.time.LocalDateTime;
+import java.util.Date;
 
 @Data
 @Entity
@@ -35,15 +36,15 @@ public class Booking {
     private String borrowedBy;
     private String serialNumber;
     @CreatedDate
-    private LocalDateTime borrowedDate;
+    private Date borrowedDate;
     @LastModifiedDate
-    private LocalDateTime returnDate;
+    private Date returnDate;
     private String model;
 //    private String quantity;
     private String status;
     @CreationTimestamp
-    private LocalDateTime createdAt;
+    private Date createdAt;
     @UpdateTimestamp
-    private LocalDateTime updatedAt;
+    private Date updatedAt;
 
 }

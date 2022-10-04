@@ -43,7 +43,7 @@ public class BookingController {
         return new ResponseEntity<>(bookingService.getBookings(peopleId), HttpStatus.OK);
     }
 
-//     All Bookings
+//     All Bookings Endpoint
     @GetMapping(value = "/get-all-bookings")
     public ResponseEntity<List<Booking>> getAllBookings() {
         log.info("Bookings Retrieved.");

@@ -6,6 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import javax.validation.constraints.NotEmpty;
 import java.io.Serializable;
+import java.sql.Date;
 import java.sql.Timestamp;
 
 
@@ -28,7 +29,7 @@ public class LaptopDto implements Serializable {
     private String ram;
     @NotEmpty(message = "Storage is Required.")
     private String storage;
-    private Timestamp createdAt;
-    private Timestamp updatedAt;
+    private Date createdAt;
+    private Date updatedAt;
 
 }

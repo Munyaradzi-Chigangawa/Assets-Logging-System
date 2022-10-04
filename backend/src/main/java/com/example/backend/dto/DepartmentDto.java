@@ -6,6 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import javax.validation.constraints.NotEmpty;
 import java.io.Serializable;
+import java.sql.Date;
 import java.sql.Timestamp;
 
 @Data
@@ -20,6 +21,6 @@ public class DepartmentDto implements Serializable {
     private String departmentCode;
     @NotEmpty(message = "Department Description is Required.")
     private String departmentDescription;
-    private Timestamp createdAt;
-    private Timestamp updatedAt;
+    private Date createdAt;
+    private Date updatedAt;
 }

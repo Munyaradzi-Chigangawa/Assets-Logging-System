@@ -6,9 +6,7 @@ import lombok.NoArgsConstructor;
 
 import javax.validation.constraints.NotEmpty;
 import java.io.Serializable;
-import java.sql.Timestamp;
-import java.time.LocalDate;
-import java.time.LocalDateTime;
+import java.util.Date;
 
 @Data
 @Builder
@@ -22,16 +20,16 @@ public class BookingDto implements Serializable {
     @NotEmpty(message = "Serial Number is Required.")
     private String serialNumber;
     @NotEmpty(message = "Borrowed Date is Required.")
-    private LocalDateTime borrowedDate;
+    private Date borrowedDate;
     @NotEmpty(message = "Return Date is Required.")
-    private LocalDateTime returnDate;
+    private Date returnDate;
     @NotEmpty(message = "Model is Required.")
     private String model;
 //    @NotEmpty(message = "Quantity is Required.")
 //    private String quantity;
     @NotEmpty(message = "Status is Required.")
     private String status;
-    private LocalDateTime createdAt;
-    private LocalDateTime updatedAt;
+    private Date createdAt;
+    private Date updatedAt;
 
 }

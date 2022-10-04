@@ -7,6 +7,7 @@ import org.hibernate.annotations.UpdateTimestamp;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.sql.Timestamp;
+import java.util.Date;
 
 @Entity
 @Data
@@ -27,9 +28,9 @@ public class People {
     private String email;
     private String Password;
     @CreationTimestamp
-    private Timestamp createdAt;
+    private Date createdAt;
     @UpdateTimestamp
-    private Timestamp updatedAt;
+    private Date updatedAt;
 }
 
 

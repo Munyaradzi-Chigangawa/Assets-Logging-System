@@ -8,6 +8,7 @@ import org.hibernate.annotations.UpdateTimestamp;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.sql.Date;
 import java.sql.Timestamp;
 
 @Entity
@@ -31,7 +32,7 @@ public class Laptop implements Serializable {
     private String ram;
     private String storage;
     @CreationTimestamp
-    private Timestamp createdAt;
+    private Date createdAt;
     @UpdateTimestamp
-    private Timestamp updatedAt;
+    private Date updatedAt;
 }
