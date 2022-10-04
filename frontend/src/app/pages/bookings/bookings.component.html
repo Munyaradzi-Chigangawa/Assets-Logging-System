@@ -15,7 +15,6 @@
               <table class=" table tablesorter" id="">
                 <thead class=" text-primary">
                   <tr>
-                    <th>Id</th>
                     <th>Name</th>
                     <th>Borrowed By</th>
                     <th>Model</th>
@@ -28,8 +27,7 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <tr *ngFor = "let booking for bookings">
-                    <td> {{ booking.bookingId }} </td>
+                  <tr *ngFor = "let booking of bookings">
                     <td> {{ booking.assetName }} </td>
                     <td> {{ booking.borrowedBy }}</td>
                     <td> {{ booking.model }} </td>
@@ -37,8 +35,8 @@
                     <td> {{ booking.borrowedDate }}</td>
                     <td> {{ booking.returnDate }}</td>
                     <td> {{ booking.status }} </td>
-                    <td> {{ booking.created_at }} </td>
-                    <td> {{ booking.updated_at }} </td>
+                    <td> {{ booking.createdAt | date }} </td>
+                    <td> {{ booking.updatedAt | date }} </td>
                   </tr>
                 </tbody>
               </table>

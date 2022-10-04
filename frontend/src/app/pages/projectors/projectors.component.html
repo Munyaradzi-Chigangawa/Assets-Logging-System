@@ -29,19 +29,20 @@
                   <td> {{projector.projectorModel}} </td>
                   <td> {{projector.projectorSerialNumber}} </td>
                   <td> {{projector.projectorStatus}} </td>
-                  <td> {{projector.createdAt}} </td>
-                  <td> {{projector.updatedAt}} </td>
+                  <td> {{projector.createdAt | date}} </td>
+                  <td> {{projector.updatedAt | date}} </td>
                   <td>
-                    <button class="btn btn-outline btn-info" [routerLink]="'/view-projector/'+ projector.projectorId">
+                    <!-- <button class="btn btn-outline btn-info" [routerLink]="'/view-projector/'+ projector.projectorId">
 
                       <i class="tim-icons icon-notes"></i> View
-                    </button>
+                    </button> -->
 
                     <button class="btn btn-outline btn-success" [routerLink]="'/edit-projector/' + projector.projectorId">
-                      <i class="tim-icons icon-pencil"> </i> Edit
+                      <i class="tim-icons icon-pencil"> </i>
                     </button>
+                    &nbsp;
                     <button class="btn btn-fill btn-danger">
-                      <i class="tim-icons icon-trash-simple" (click)="deleteProjector(projector.projectorId)"></i> Delete
+                      <i class="tim-icons icon-trash-simple" (click)="deleteProjector(projector.projectorId)"></i>
                     </button>
                   </td>
                 </tr>

@@ -26,19 +26,21 @@
                     <td> {{department.departmentName}} </td>
                     <td> {{department.departmentCode}} </td>
                     <td> {{department.departmentDescription}} </td>
-                    <td> {{department.createdAt}} </td>
-                    <td> {{department.updatedAt}} </td>
-                    <button class="btn btn-outline btn-info" [routerLink]="'/view-department/'+ department.departmentId">
-
+                    <td> {{department.createdAt | date}} </td>
+                    <td> {{department.updatedAt | date}} </td>
+<td>
+                    <!-- <button class="btn btn-outline btn-info" [routerLink]="'/view-department/'+ department.departmentId">
                       <i class="tim-icons icon-notes"></i> View
-                    </button>
+                    </button> -->
 
                     <button class="btn btn-outline btn-success" [routerLink]="'/edit-department/' + department.departmentId">
-                      <i class="tim-icons icon-pencil"> </i> Edit
+                      <i class="tim-icons icon-pencil"> </i> 
                     </button>
+                    &nbsp;
                     <button class="btn btn-fill btn-danger">
-                      <i class="tim-icons icon-trash-simple" (click)="deleteDepartment(department.departmentId)"></i> Delete
+                      <i class="tim-icons icon-trash-simple" (click)="deleteDepartment(department.departmentId)"></i>
                     </button>
+                  </td>
                   </tr>
                 </tbody>
               </table>

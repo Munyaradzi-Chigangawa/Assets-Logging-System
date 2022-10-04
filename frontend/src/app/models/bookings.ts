@@ -6,7 +6,7 @@ export class Bookings {
     model: string;
     borrowedDate: Date;
     returnDate: Date;
-    quantity: number;
+    // quantity: number;
     status: string;
     createdAt: Date;
     updatedAt: Date;
