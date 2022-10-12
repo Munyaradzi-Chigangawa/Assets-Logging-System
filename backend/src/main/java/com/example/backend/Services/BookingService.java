@@ -34,6 +34,7 @@ public class BookingService {
                 .status(booking.getStatus())
                 .createdAt(booking.getCreatedAt())
                 .updatedAt(booking.getUpdatedAt())
+                .people(people)
                 .build();
         return bookingRepository.save(booking1);
     }
@@ -48,5 +49,11 @@ public class BookingService {
 //    Get All Bookings
     public List <Booking> getAllBookings() {
         return bookingRepository.findAll();
+    }
+
+//    Deleting Booking
+    public Booking deleteBooking(Long id) {
+        bookingRepository.deleteById(id);
+        return null;
     }
 }

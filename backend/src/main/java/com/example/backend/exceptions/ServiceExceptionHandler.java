@@ -64,46 +64,42 @@ public class ServiceExceptionHandler extends ResponseEntityExceptionHandler {
 
     @ExceptionHandler(UserNotFound.class)
     public ResponseEntity<Object> dataHandlingExceptionHandler(UserNotFound ex) {
-        return new ResponseEntity<>("Error occurred while handling input data: Part of the input data could not be processed" + ex.getMessage(), HttpStatus.BAD_REQUEST);
+        return new ResponseEntity<>("Error occurred while handling input data: Part of the input data could not be processed. " + ex.getMessage(), HttpStatus.BAD_REQUEST);
     }
     @ExceptionHandler(BookingNotFound.class)
     public ResponseEntity<Object> dataHandlingExceptionHandler(BookingNotFound ex) {
-        return new ResponseEntity<>("Error occurred while handling input data: Part of the input data could not be processed" + ex.getMessage(), HttpStatus.BAD_REQUEST);
+        return new ResponseEntity<>("Error occurred while handling input data: Part of the input data could not be processed. " + ex.getMessage(), HttpStatus.BAD_REQUEST);
     }
 
     @ExceptionHandler(DepartmentNotFound.class)
     public ResponseEntity<Object> dataHandlingExceptionHandler(DepartmentNotFound ex) {
-        return new ResponseEntity<>("Error occurred while handling input data: Part of the input data could not be processed" + ex.getMessage(), HttpStatus.BAD_REQUEST);
+        return new ResponseEntity<>("Error occurred while handling input data: Part of the input data could not be processed. " + ex.getMessage(), HttpStatus.BAD_REQUEST);
     }
 
     @ExceptionHandler(LaptopNotFound.class)
     public ResponseEntity<Object> dataHandlingExceptionHandler(LaptopNotFound ex) {
-        return new ResponseEntity<>("Error occurred while handling input data: Part of the input data could not be processed" + ex.getMessage(), HttpStatus.BAD_REQUEST);
+        return new ResponseEntity<>("Error occurred while handling input data: Part of the input data could not be processed. " + ex.getMessage(), HttpStatus.BAD_REQUEST);
     }
 
     @ExceptionHandler(PersonNotFound.class)
     public ResponseEntity<Object> dataHandlingExceptionHandler(PersonNotFound ex) {
-        return new ResponseEntity<>("Error occurred while handling input data: Part of the input data could not be processed" + ex.getMessage(), HttpStatus.BAD_REQUEST);
+        return new ResponseEntity<>("Error occurred while handling input data: Part of the input data could not be processed. " + ex.getMessage(), HttpStatus.BAD_REQUEST);
     }
 
     @ExceptionHandler(ProjectorNotFound.class)
     public ResponseEntity<Object> dataHandlingExceptionHandler(ProjectorNotFound ex) {
-        return new ResponseEntity<>("Error occurred while handling input data: Part of the input data could not be processed" + ex.getMessage(), HttpStatus.BAD_REQUEST);
+        return new ResponseEntity<>("Error occurred while handling input data: Part of the input data could not be processed. " + ex.getMessage(), HttpStatus.BAD_REQUEST);
     }
-
-
-
 
     @ExceptionHandler(JsonProcessingException.class)
     public ResponseEntity<Object> jsonProcessingExceptionHandler(JsonProcessingException ex) {
-        return new ResponseEntity<>("Error occurred in Processing a JSON request: The XML string could not be mapped" + ex.getMessage(), HttpStatus.EXPECTATION_FAILED);
+        return new ResponseEntity<>("Error occurred in Processing a JSON request: The XML string could not be mapped. " + ex.getMessage(), HttpStatus.EXPECTATION_FAILED);
     }
-
 
     @ExceptionHandler(Exception.class)
     public ResponseEntity<Object> generalExceptionHandler(Exception ex) {
 
-        return new ResponseEntity<>("Error Occurred: Request could not be processed" + ex.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
+        return new ResponseEntity<>("Error Occurred: Request could not be processed. " + ex.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
     }
 }
 
