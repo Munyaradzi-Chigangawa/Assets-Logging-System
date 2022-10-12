@@ -12,6 +12,7 @@ import { EditProjectorComponent } from "src/app/pages/projectors/edit-projector/
 import { AddDepartmentComponent } from "src/app/pages/departments/add-department/add-department.component";
 import { EditDepartmentComponent } from "src/app/pages/departments/edit-department/edit-department.component";
 import { ViewDepartmentComponent } from "src/app/pages/departments/view-department/view-department.component";
+import { EditBookingComponent } from "src/app/pages/bookings/edit-booking/edit-booking.component";
 
 export const AdminLayoutRoutes: Routes = [
   { path: "dashboard", component: DashboardComponent },
@@ -26,6 +27,6 @@ export const AdminLayoutRoutes: Routes = [
   { path: "edit-projector/:projectorId", component: EditProjectorComponent },
   { path: "add-department", component: AddDepartmentComponent },
   { path: "edit-department/:departmentId", component: EditDepartmentComponent },
-  { path: "view-department/:departmentId", component: ViewDepartmentComponent }
-
+  { path: "view-department/:departmentId", component: ViewDepartmentComponent },
+  { path: "edit-booking/:bookingId", component: EditBookingComponent },
 ];

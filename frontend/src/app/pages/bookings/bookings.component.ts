@@ -30,4 +30,16 @@ export class BookingsComponent implements OnInit {
     )
   }
 
+  // Delete Booking
+  public deleteBooking(bookingId: number) {
+    this.bookingService.deleteBooking(bookingId).subscribe(
+    (
+     response: void) => {
+      console.log(response);
+      alert("Booking deleted successfully");
+      this.getAllBookings();
+    },
+    (error: any) => console.log(error)
+    );
+  }
 }

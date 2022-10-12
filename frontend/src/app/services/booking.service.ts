@@ -17,5 +17,10 @@ export class BookingService {
     return this.httpClient.get<Bookings[]>(`${this.baseUrl}/get-all-bookings`);
   }
 
+  // Delete Booking
+  public deleteBooking(bookingId: number): Observable<any> {
+    return this.httpClient.delete(`${this.baseUrl}/delete-booking/${bookingId}`);
+  }
+  
 
 }

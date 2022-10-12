@@ -4,7 +4,7 @@
       <div class=" col-md-12">
         <div class=" card">
           <div class=" card-header">
-            <h4 class=" card-title">Projectors</h4>
+            <h4 class=" card-title">Bookings</h4>
           </div>
 
           <div class=" card-footer">
@@ -24,6 +24,7 @@
                     <th>Status</th>
                     <th>Created At</th>
                     <th>Updated At</th>
+                    <th>Actions</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -37,6 +38,16 @@
                     <td> {{ booking.status }} </td>
                     <td> {{ booking.createdAt | date }} </td>
                     <td> {{ booking.updatedAt | date }} </td>
+                    <td>
+                      <!-- Actions -->
+                      <button class="btn btn-outline btn-success" [routerLink]="'/edit-booking/' + booking.bookingId">
+                        <i class="tim-icons icon-pencil"> </i> 
+                      </button>
+                      &nbsp;
+                      <button class="btn btn-fill btn-danger">
+                        <i class="tim-icons icon-trash-simple" (click)="deleteBooking(booking.bookingId)"></i>
+                      </button>
+                      </td>
                   </tr>
                 </tbody>
               </table>

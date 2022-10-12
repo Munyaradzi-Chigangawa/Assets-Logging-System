@@ -14,7 +14,6 @@
               <table class=" table tablesorter" id="">
                 <thead class=" text-primary">
                   <tr>
-                    <th>Id</th>
                     <th>Name</th>
                     <th>Department</th>
                     <th>Designation</th>
@@ -22,11 +21,11 @@
                     <th>Email</th>
                     <th>Created At</th>
                     <th>Updated At</th>
+                    <th>Actions</th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr *ngFor="let person of people">
-                    <td> {{person.id}} </td>
                     <td> {{person.name}} </td>
                     <td> {{person.department}} </td>
                     <td> {{person.designation}} </td>
@@ -34,6 +33,15 @@
                     <td> {{person.email}} </td>
                     <td> {{person.created_at}} </td>
                     <td> {{person.updated_at}} </td>
+                    <td>
+                      <button class="btn btn-outline btn-success" [routerLink]="'/edit-person/' + person.id">
+                        <i class="tim-icons icon-pencil"> </i>
+                      </button>
+                      &nbsp;
+                      <button class="btn btn-fill btn-danger">
+                        <i class="tim-icons icon-trash-simple" (click)="deletePerson(person.id)"></i>
+                      </button>
+                    </td>
                   </tr>
                 </tbody>
               </table>
