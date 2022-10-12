@@ -38,14 +38,34 @@ public class PeopleService {
         return peopleRepository.findAll();
     }
 
-//    Get People By Id
+//    Get People ById
+
     public People findById(Long peopleId) {
         return peopleRepository.findById(peopleId)
                 .orElseThrow(() -> new PersonNotFound("People id " + peopleId + " was not found"));
+    }
+// Hameno
+    public People getPerson(Long id) {
+        return peopleRepository.findById(id)
+                .orElseThrow(() -> new PersonNotFound("People id " + id + " was not found"));
     }
 
     public People deletePeople(Long peopleId) {
         peopleRepository.deleteById(peopleId);
         return null;
+    }
+
+//     Update Person
+    public People updatePerson (PeopleDto peopleDto, Long id) {
+        People people = peopleRepository.findById(id)
+                .orElseThrow(() -> new PersonNotFound("Person Not Found"));
+                people.setName(peopleDto.getName());
+                people.setDepartment(peopleDto.getDepartment());
+                people.setDesignation(peopleDto.getDesignation());
+                people.setPhone(peopleDto.getPhone());
+                people.setEmail(peopleDto.getEmail());
+                people.setCreatedAt(peopleDto.getCreatedAt());
+                people.setUpdatedAt(peopleDto.getUpdatedAt());
+        return peopleRepository.save(people);
     }
 }
