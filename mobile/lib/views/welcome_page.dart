@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:mobile/views/auth/login.dart';
 
 import '../constants/button.dart';
@@ -27,9 +28,9 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[
                       const Image(
-                      image: AssetImage('assets/img/logo.png'),
-                          height: 130,
-                        ),
+                        image: AssetImage('assets/img/logo.png'),
+                        height: 130,
+                      ),
                       const SizedBox(
                         height: 50,
                       ),
@@ -39,37 +40,32 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                         children: <Widget>[
                           Column(
                             mainAxisAlignment: MainAxisAlignment.center,
-                            children: const [
+                            children: [
                               Text(
                                 'Welcome to',
-                                style: TextStyle(
+                                style: GoogleFonts.poppins(
                                     fontSize: 22,
                                     fontWeight: FontWeight.w300,
                                     color: Colors.black),
                               ),
-                              SizedBox(
+                              const SizedBox(
                                 width: 10,
                               ),
                               Text('CUT ICT Assets',
-                                  style: TextStyle(
+                                  style: GoogleFonts.poppins(
                                       fontSize: 25,
                                       fontWeight: FontWeight.bold,
                                       color: Colors.black)),
-                            //  AppName(fontSize: 25),
+                              //  AppName(fontSize: 25),
                             ],
                           ),
-                          const Padding(
-                            padding:
-                                EdgeInsets.only(left: 30, right: 30, top: 5),
-                            child: Text(
-                              'Please sign in to continue',
-                              textAlign: TextAlign.center,
-                              style: TextStyle(
-                                  fontSize: 14,
-                                  fontWeight: FontWeight.w500,
-                                  color: Colors.black),
-                            ),
-                          )
+                          Text(
+                            'Please sign in to continue',
+                            style: GoogleFonts.poppins(
+                                fontSize: 14,
+                                fontWeight: FontWeight.w500,
+                                color: Colors.black),
+                          ),
                         ],
                       ),
                     ],
@@ -78,9 +74,12 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
               const SizedBox(
                 height: 30,
               ),
-              //Text("don't have social accounts?") ,
               BigButton(
-                child: Text('Sign In', style: TextStyle(color: Theme.of(context).cardColor, fontWeight: FontWeight.w400),
+                child: Text(
+                  'Sign In',
+                  style: GoogleFonts.poppins(
+                      color: Theme.of(context).cardColor,
+                      fontWeight: FontWeight.w400),
                 ),
                 onPressed: () {
                   Navigator.push(

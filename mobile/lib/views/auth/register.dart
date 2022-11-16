@@ -1,201 +1,239 @@
+import 'dart:convert';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:mobile/views/auth/login.dart';
+import 'package:google_fonts/google_fonts.dart';
+// ignore: depend_on_referenced_packages
+import 'package:http/http.dart' as http;
+
+import '../../constants/button.dart';
+import '../../models/user.dart';
 
 class Register extends StatefulWidget {
   const Register({Key? key}) : super(key: key);
 
   @override
-  State<Register> createState() => _RegisterState();
+  // ignore: library_private_types_in_public_api
+  _RegisterState createState() => _RegisterState();
 }
 
 class _RegisterState extends State<Register> {
+  final _formKey = GlobalKey<FormState>();
+  User user = User("", "", "", "", "", "");
+  String url = "http://192.168.1.35:8080/api/v1/add-people";
+
+  Future save() async {
+    var res = await http.post(Uri.parse(url),
+        headers: {'Content-Type': 'application/json'},
+        body: json.encode({
+          'email': user.email,
+          'password': user.password,
+          'name': user.name,
+          'designation': user.designation,
+          'department': user.department
+        }));
+    if (res.body != null) {
+      // ignore: use_build_context_synchronously
+      Navigator.pop(context);
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
-     return Scaffold(
-        appBar: AppBar(),
-        body: SingleChildScrollView(
-            child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            const SizedBox(),
-            const Padding(
-              padding: EdgeInsets.fromLTRB(20, 15, 20, 8),
-              child: Text(
-                'Register',
-                style: TextStyle(
-                    color: Colors.black,
-                    fontWeight: FontWeight.w600,
-                    fontSize: 30),
-              ),
-            ),
-            const Padding(
-              padding: EdgeInsets.symmetric(horizontal: 20.0),
-              child: Text(
-                'Please sign up to continue.',
-                style: TextStyle(fontWeight: FontWeight.w400, fontSize: 13),
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 20.0),
-              child: Container(
-                margin: const EdgeInsets.symmetric(vertical: 10.0),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    const SizedBox(height: 10,),
-                    const Text(
-                      'E-mail',
-                      style: TextStyle(
-                          fontWeight: FontWeight.w400,
-                          fontSize: 13,
-                          color: Colors.black),
-                    ),
-                    const SizedBox(
-                      height: 10,
-                    ),
-                    TextField(
-                      style: (const TextStyle(
-                          color: Colors.black, fontWeight: FontWeight.w400)),
-                      keyboardType: TextInputType.emailAddress,
-                      cursorColor: Colors.black,
-                      obscureText: false,
-                      decoration: InputDecoration(
-                        border: InputBorder.none,
-                        filled: true,
-                        prefixIcon: Image.asset('assets/img/icon_email.png'),
-                        focusedBorder: const OutlineInputBorder(
-                          borderSide: BorderSide(width: 2.0),
-                          borderRadius: BorderRadius.all(Radius.circular(20.0)),
+    return Scaffold(
+      appBar: AppBar(),
+      body: SafeArea(
+        child: SingleChildScrollView(
+          child: Form(
+              key: _formKey,
+              child: Column(
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.all(16.0),
+                    child: Column(
+                      children: [
+                        const SizedBox(
+                          height: 10,
                         ),
-                      ),
-                      // onChanged: (value) {
-                      //   email = value;
-                      // },
-                    ),
-                    const SizedBox(height: 10,),
-                    Container(
-                  margin: const EdgeInsets.symmetric(vertical: 10.0),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: <Widget>[
-                      const Text(
-                        'Password',
-                        style: TextStyle(
-                            fontWeight: FontWeight.w300,
-                            fontSize: 13,
-                            color: Colors.black),
-                      ),
-                     const  SizedBox(
-                        height: 10,
-                      ),
-                      TextField(
-                        style: (const TextStyle(
-                            color: Colors.black, fontWeight: FontWeight.w400)),
-                        obscureText: true,
-                        cursorColor: Colors.black,
-                        decoration: InputDecoration(
-                          border: InputBorder.none,
-                          filled: true,
-                          prefixIcon:
-                              Image.asset('assets/img/icon_lock.png'),
-                          focusedBorder: const OutlineInputBorder(
-                            borderSide: BorderSide(width: 2.0),
-                            borderRadius:
-                                BorderRadius.all(Radius.circular(20.0)),
+                        Text("Register",
+                            style: GoogleFonts.poppins(
+                              fontWeight: FontWeight.bold,
+                              fontSize: 40,
+                            )),
+                        const SizedBox(
+                          height: 10,
+                        ),
+                        Align(
+                          alignment: Alignment.topLeft,
+                          child: Text(
+                            "Full Name",
+                            style: GoogleFonts.poppins(
+                              // fontWeight: FontWeight.bold,
+                              
+                            ),
                           ),
                         ),
-                        // onChanged: (value) {
-                        //   password = value;
-                        // },
-                      ),
-                    ],
-                  ),
-                ),
-                const SizedBox(height: 20,),
 
-                 Padding(
-                  padding:
-                      const EdgeInsets.only(left: 20, right: 20, bottom: 0),
-                  child: SizedBox(
-                    height: 45,
-                    child: TextButton(
-                      style: ButtonStyle(
-                          backgroundColor: MaterialStateProperty.resolveWith(
-                              (states) => Theme.of(context).primaryColor)),
-                      onPressed: () {
-                        // Add login code
-                        // setState(() {
-                        //  isLoading = true;
-                        // });
-                        // try {
-                        //   final user = await _auth.signInWithEmailAndPassword(
-                        //       email: email, password: password);
-                        //   // ignore: unnecessary_null_comparison
-                        //   if (user != null) {
-                        //     Navigator.push(
-                        //         context,
-                        //         MaterialPageRoute(
-                        //             builder: (context) => Home()));
-                        //   }
-                        //   setState(() {
+                        // Full Name 
+                        TextFormField(
+                          controller: TextEditingController(text: user.name),
+                          onChanged: (val) {
+                            user.name = val;
+                          },
+                          validator: (value) {
+                            if (value!.isEmpty) {
+                              return 'Full Name is Empty';
+                            }
+                            return null;
+                          },
+                          // style: const TextStyle(fontSize: 25),
+                          decoration: const InputDecoration(
+                              errorStyle:
+                                  TextStyle( color: Colors.black),
+                              border: OutlineInputBorder(
+                                  )),
+                        ),
+                        const SizedBox(
+                          height: 25,
+                        ),
+                        Align(
+                          alignment: Alignment.topLeft,
+                          child: Text(
+                            "Email",
+                            style: GoogleFonts.poppins(
+                              // fontWeight: FontWeight.bold,
+  
+                            ),
+                          ),
+                        ),
+
+                        // Email
+                        TextFormField(
+                          controller: TextEditingController(text: user.email),
+                          onChanged: (val) {
+                            user.email = val;
+                          },
+                          validator: (value) {
+                            if (value!.isEmpty) {
+                              return 'Email is Empty';
+                            }
+                            return null;
+                          },
+                         
+                          decoration: const InputDecoration(
+                              errorStyle:
+                                  TextStyle(color: Colors.black),
+                              border: OutlineInputBorder(
+                                  )),
+                        ),
+                        const SizedBox(
+                          height: 25,
+                        ),
+                        Align(
+                          alignment: Alignment.topLeft,
+                          child: Text(
+                            "Designation",
+                            style: GoogleFonts.poppins(
+                              // fontWeight: FontWeight.bold,
                             
-                        //   });
-                        // } catch (e) {
-                        //   print(e);
-                        // }
-                      },
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: const [
-                          Text('Login',
-                              style:
-                                  TextStyle(fontSize: 16, color: Colors.white)),
-                        ],
-                      ),
+                            ),
+                          ),
+                        ),
+
+                        // Designation
+                        TextFormField(
+                          controller:
+                              TextEditingController(text: user.designation),
+                          onChanged: (val) {
+                            user.password = val;
+                          },
+                          validator: (value) {
+                            if (value!.isEmpty) {
+                              return 'Designation is Empty';
+                            }
+                            return null;
+                          },
+                          
+                          decoration: const InputDecoration(
+                              errorStyle:
+                                  TextStyle( color: Colors.black),
+                              border: OutlineInputBorder(
+                                 )),
+                        ),
+                        const SizedBox(
+                          height: 25,
+                        ),
+                        Align(
+                          alignment: Alignment.topLeft,
+                          child: Text(
+                            "Password",
+                            style: GoogleFonts.poppins(
+                             
+                            ),
+                          ),
+                        ),
+
+                        // Password
+                        TextFormField(
+                          obscureText: true,
+                          controller:
+                              TextEditingController(text: user.password),
+                          onChanged: (val) {
+                            user.password = val;
+                          },
+                          validator: (value) {
+                            if (value!.isEmpty) {
+                              return 'Password is Empty';
+                            }
+                            return null;
+                          },
+                          
+                          decoration: const InputDecoration(
+                              errorStyle:
+                                  TextStyle(color: Colors.black),
+                              border: OutlineInputBorder(
+                                  )),
+                        ),
+                        const SizedBox(
+                          height: 25,
+                        ),
+                        Center(
+                          child: InkWell(
+                            onTap: () {
+                              Navigator.pop(context);
+                            },
+                            child: Text(
+                              "Already have Account ?",
+                              style: GoogleFonts.poppins(
+                                  fontWeight: FontWeight.normal,
+                                  
+                                  ),
+                            ),
+                          ),
+                        )
+                      ],
                     ),
                   ),
-                ),
-               
-                const SizedBox(
-                  height: 25,
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                   const Text(
-                      "Already have an account?",
-                      style: TextStyle(
-                          color: Colors.black,
-                          fontWeight: FontWeight.w500,
-                          fontSize: 13),
+                  const SizedBox(
+                    height: 10,
+                  ),
+                  SizedBox(
+                    child: BigButton(
+                      child: Text(
+                        'Register',
+                        style: TextStyle(
+                            color: Theme.of(context).cardColor,
+                            fontWeight: FontWeight.w400),
                       ),
-                    
-
-                    TextButton(
                       onPressed: () {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => const Login()));
+                        if (_formKey.currentState!.validate()) {
+                          save();
+                        }
                       },
-                      child: const Text(
-                        'Sign In',
-                        style: TextStyle(color: Colors.black),
-                      ),
-                    )
-                  ],
-                ),
-                  ],
-                ),  
-              ),
-            ),
-          ],
-        )
-      )
+                    ),
+                  ),
+                ],
+              )),
+        ),
+      ),
     );
-    
   }
 }
