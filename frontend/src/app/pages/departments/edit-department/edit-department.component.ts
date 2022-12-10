@@ -6,7 +6,6 @@ import { DepartmentService } from 'src/app/services/department.service';
 @Component({
   selector: 'app-edit-department',
   templateUrl: './edit-department.component.html',
-  styleUrls: ['./edit-department.component.scss']
 })
 export class EditDepartmentComponent implements OnInit {
   private departmentId!: number;
